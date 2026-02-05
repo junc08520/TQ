@@ -1,278 +1,182 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özel Dış Mekan Etkinlikleri & Arkadaşlık</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gold: #D4AF37;
-            --deep-red: #8B0000;
-            --accent-orange: #FF8C00;
-            --bg-dark: #0a0705;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sanatsal Bir Davet</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-dark);
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .hero-container {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            background: radial-gradient(circle at center, #2c1a12 0%, #0a0705 100%);
-        }
+  <style>
+    :root {
+      --primary-accent: #C5A059; /* 经典的土耳其式金棕色 */
+      --deep-text: #1a1a1a;
+      --bg-gradient: linear-gradient(180deg, #fcfaf7 0%, #f2ede4 100%);
+    }
 
-        /* 动画星空背景 */
-        .stars {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
-        }
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle var(--d) infinite;
-        }
+    body {
+      margin: 0;
+      font-family: "Playfair Display", "Georgia", serif;
+      background: var(--bg-gradient);
+      color: var(--deep-text);
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* 篝火核心动画 */
-        .campfire-wrapper {
-            position: absolute;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            opacity: 0.6;
-        }
-        .fire {
-            width: 150px; height: 150px;
-            background: radial-gradient(circle at bottom, #FF4500, #FF8C00, transparent);
-            border-radius: 50% 50% 20% 20%;
-            filter: blur(10px);
-            animation: flicker 0.15s infinite;
-        }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
 
-        /* 主体内容卡片 */
-        .glass-card {
-            position: relative;
-            z-index: 10;
-            max-width: 850px;
-            width: 100%;
-            background: rgba(20, 15, 10, 0.75);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 40px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.05);
-        }
+    h1 {
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: #3e2723;
+    }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 15px;
-            background: linear-gradient(to bottom, #fff, var(--primary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-        }
+    .subtitle {
+      font-size: 19px;
+      color: var(--primary-accent);
+      margin-bottom: 40px;
+      font-style: italic;
+      font-family: "Montserrat", sans-serif;
+    }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #d1d1d1;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-        }
+    .image-box {
+      margin: 30px 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(62, 39, 35, 0.15);
+      transition: transform 0.3s ease;
+    }
 
-        /* 活动网格 */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
+    .image-box:hover {
+      transform: scale(1.02);
+    }
 
-        .grid-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 25px 15px;
-            border-radius: 25px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .grid-item:hover {
-            transform: translateY(-10px);
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--primary-gold);
-        }
+    .text {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #4e342e;
+      margin: 35px 0;
+    }
 
-        .grid-item i {
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 15px;
-            display: block;
-        }
+    .text em {
+      font-style: italic;
+      color: var(--primary-accent);
+      font-weight: 500;
+    }
 
-        .grid-item span {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #eee;
-        }
+    .cta {
+      margin-top: 50px;
+    }
 
-        /* 增强版 WhatsApp 按钮 */
-        .cta-wrapper {
-            margin-top: 20px;
-        }
+    .cta a {
+      display: inline-block;
+      padding: 18px 50px;
+      background: #3e2723;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(62, 39, 35, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(135deg, #25D366 0%, #075E54 100%);
-            color: white;
-            padding: 22px 55px;
-            border-radius: 100px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            text-decoration: none;
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    .cta a:hover {
+      background: var(--primary-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+    }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 45px rgba(37, 211, 102, 0.5);
-        }
+    .note {
+      margin-top: 30px;
+      font-size: 15px;
+      color: #8d6e63;
+      letter-spacing: 0.5px;
+    }
 
-        .whatsapp-btn i {
-            margin-right: 12px;
-            font-size: 1.8rem;
-        }
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: var(--primary-accent);
+      margin: 30px auto;
+    }
+  </style>
 
-        .whatsapp-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shine 3s infinite;
-        }
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function(w,d,t){
+    w.TiktokAnalyticsObject=t;
+    var ttq=w[t]=w[t]||[];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+    for(var i=0;i<ttq.methods.length;i++){ttq.setAndDefer(ttq,ttq.methods[i]);}
+    ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++){ttq.setAndDefer(e,ttq.methods[n]);}return e;};
+    ttq.load=function(e,n){
+      var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;
+      ttq._i=ttq._i||{};
+      ttq._i[e]=[];
+      ttq._i[e]._u=r;
+      ttq._t=ttq._t||{};
+      ttq._t[e]=+new Date;
+      ttq._o=ttq._o||{};
+      ttq._o[e]=n||{};
+      n=document.createElement("script");
+      n.type="text/javascript";
+      n.async=!0;
+      n.src=r+"?sdkid="+e+"&lib="+t;
+      e=document.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(n,e);
+    };
+    ttq.load('D62CCDBC77UC1EV4AO9G');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
 
-        .footer-note {
-            margin-top: 35px;
-            font-style: italic;
-            color: #999;
-            font-size: 0.95rem;
-        }
-
-        .footer-note b {
-            color: var(--primary-gold);
-        }
-
-        /* 动画定义 */
-        @keyframes flicker {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.05); opacity: 1; }
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        @media (max-width: 600px) {
-            .glass-card { padding: 40px 20px; border-radius: 30px; }
-            h1 { font-size: 2rem; }
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
-            .whatsapp-btn { padding: 18px 30px; font-size: 1.1rem; }
-        }
-    </style>
 </head>
+
 <body>
+  <div class="container">
 
-    <div class="hero-container">
-        <div class="stars" id="stars"></div>
-        
-        <div class="campfire-wrapper">
-            <div class="fire"></div>
-        </div>
+    <h1>Sanatsal Bir Davet</h1>
 
-        <div class="glass-card">
-            <h1>Hayata Renk Katın</h1>
-            <p class="tagline">Macera, Sanat ve Yeni Dostluklar</p>
-
-            <div class="grid-container">
-                <div class="grid-item">
-                    <i class="fas fa-fire-alt"></i>
-                    <span>Kamp Ateşi Partileri</span>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-mountain"></i>
-                    <span>Doğa Yürüyüşleri</span>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-cocktail"></i>
-                    <span>Sosyal Buluşmalar</span>
-                </div>
-                <div class="grid-item">
-                    <i class="fas fa-caravan"></i>
-                    <span>Hafta Sonu Kampları</span>
-                </div>
-            </div>
-
-            <div class="cta-wrapper">
-                <a href="https://wa.me/14344272585?text=Merhaba" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    WhatsApp Grubuna Katıl
-                </a>
-            </div>
-
-            <p class="footer-note">
-                Unutulmaz anılar ve <b>gerçek dostluklar</b> burada başlar.<br>
-                Hemen topluluğumuza adım atın.
-            </p>
-        </div>
+    <div class="subtitle">
+      Sanatın huzurunda sakin bir an
     </div>
 
-    <script>
-        // 生成动态星空
-        function initStars() {
-            const container = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 3;
-                star.style.width = size + 'px';
-                star.style.height = size + 'px';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--d', Math.random() * 3 + 2 + 's');
-                container.appendChild(star);
-            }
-        }
-        initStars();
-    </script>
+    <div class="image-box">
+      <img src="https://images.unsplash.com/photo-1511018556341-d16986a1c194?auto=format&fit=crop&w=800&q=80" alt="Sanat ve Kahve">
+    </div>
+
+    <div class="text">
+      Bir esere bakmak,<br>
+      duyguların akışına izin vermek,<br>
+      zamanı durdurmak.
+      <br>
+      <div class="divider"></div>
+      Bu davet, sadece <em>özgür, sanatsal ve beklentisiz bir ana</em> açılan açık bir kapıdır.
+    </div>
+
+    <div class="cta">
+      <a href="https://wa.me/17655566144/?text=Merhaba" target="_blank">
+        Daveti Kabul Et
+      </a>
+    </div>
+
+    <div class="note">
+      Ücretsiz Davet · Taahhüt Yok · Sadece Sanat
+    </div>
+
+  </div>
 </body>
 </html>
