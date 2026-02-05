@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efsanevi Bir Geceye Davetlisiniz</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <title>Sizi Bekleyen Yeni Bir Sosyal Dünya</title>
 
     <script>
     !function (w, d, t) {
@@ -18,249 +15,211 @@
       ttq.page();
     }(window, document, 'ttq');
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --gold: #D4AF37;
-            --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.08);
+            --primary-accent: #6C63FF;
+            --secondary-accent: #00F2FE;
+            --bg-dark: #0F0C29;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* 动态背景 */
-        .bg-animate {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%);
-            z-index: -1;
-        }
-
-        /* 装饰流星 */
-        .shooting-star {
-            position: absolute;
-            width: 2px; height: 2px;
-            background: #fff;
-            box-shadow: 0 0 10px #fff;
-            animation: shoot 5s linear infinite;
-            opacity: 0;
-        }
-
-        .container {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: #fff;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
+            overflow-x: hidden;
         }
 
-        .glass-card {
-            max-width: 600px;
-            width: 100%;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
+        /* 动态背景动画 */
+        .animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #0F0C29, #302B63, #24243E);
+            z-index: -1;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 40%);
+            animation: move 15s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(0%, 0%); }
+        }
+
+        /* 容器样式 */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 40px;
-            padding: 50px 30px;
+            border-radius: 30px;
+            padding: 40px 25px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--secondary-accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--primary-accent);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff, var(--gold));
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #a5a5a5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
+        p.desc {
             color: #ccc;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            margin-bottom: 30px;
         }
 
-        /* 活动图标网格 */
-        .features {
+        /* 活动卡片网格 */
+        .activity-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
-        .feature-item {
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
+        .activity-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
+            padding: 20px 10px;
             transition: 0.3s;
         }
 
-        .feature-item i {
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 8px;
+        .activity-card i {
+            font-size: 1.5rem;
+            color: var(--secondary-accent);
+            margin-bottom: 10px;
+        }
+
+        .activity-card span {
             display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        .feature-item span {
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* 核心按钮优化 */
-        .cta-container { margin: 40px 0; }
-
+        /* 核心WS按钮 */
         .ws-button {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            justify-content: center;
+            background: linear-gradient(45deg, #25D366, #128C7E);
             color: white;
             text-decoration: none;
-            padding: 20px 45px;
-            border-radius: 100px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse 2s infinite;
-            position: relative;
-            overflow: hidden;
+            padding: 18px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+
+        .ws-button i {
+            margin-right: 12px;
+            font-size: 1.6rem;
         }
 
         .ws-button:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+            filter: brightness(1.1);
         }
 
-        .ws-button i { margin-right: 10px; font-size: 1.6rem; }
-
-        /* 按钮扫光特效 */
-        .ws-button::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-
-        .footer-text {
-            font-size: 0.9rem;
+        .trust-badges {
+            margin-top: 30px;
+            font-size: 0.75rem;
             color: #888;
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .footer-text b { color: var(--gold); }
-
-        /* 动画关键帧 */
-        @keyframes shoot {
-            0% { transform: translate(100%, 0); opacity: 1; }
-            20% { transform: translate(-100%, 200px); opacity: 0; }
-            100% { transform: translate(-100%, 200px); opacity: 0; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes shine {
-            0% { top: -150%; left: -150%; }
-            50% { top: 150%; left: 150%; }
-            100% { top: 150%; left: 150%; }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .features { grid-template-columns: repeat(1, 1fr); }
-            .ws-button { padding: 18px 30px; font-size: 1.1rem; }
+        .trust-badges span i {
+            color: #25D366;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
 
-<div class="bg-animate">
-    <div class="shooting-star" style="top:10%; right:10%; animation-delay: 0s;"></div>
-    <div class="shooting-star" style="top:20%; right:30%; animation-delay: 2s;"></div>
-    <div class="shooting-star" style="top:5%; right:50%; animation-delay: 4s;"></div>
-</div>
+<div class="animated-bg"></div>
 
 <div class="container">
-    <div class="glass-card">
-        <h1>Büyülü Geceye Davet</h1>
-        <p class="subtitle">Yeni Dostluklar, Müzik ve Dansın Kalbi</p>
+    <div class="header-badge">Özel Topluluk Daveti</div>
+    <h1>Sosyal Çevrenizi Genişletin</h1>
+    <p class="desc">Yeni insanlarla tanışın, kültürel etkinliklere katılın ve hayatın tadını çıkarın.</p>
 
-        <div class="features">
-            <div class="feature-item">
-                <i class="fas fa-glass-cheers"></i>
-                <span>Seçkin Davetliler</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-music"></i>
-                <span>Canlı Müzik</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-moon"></i>
-                <span>Harika Atmosfer</span>
-            </div>
+    <div class="activity-grid">
+        <div class="activity-card">
+            <i class="fas fa-users"></i>
+            <span>Yeni Tanışmalar</span>
         </div>
-
-        <div style="margin: 20px 0; color: #eee; font-size: 1.1rem; line-height: 1.6;">
-            Sıradan bir akşamı unutulmaz bir anıya dönüştürmek ister misiniz? 
-            Şehrin en özel noktasında gerçekleşecek olan buluşmamıza siz de katılın.
+        <div class="activity-card">
+            <i class="fas fa-music"></i>
+            <span>Müzik & Dans</span>
         </div>
-
-        <div class="cta-container">
-            <a href="https://wa.me/您的号码?text=Merhaba, partiye katılmak istiyorum!" 
-               class="ws-button" 
-               id="whatsappBtn">
-                <i class="fab fa-whatsapp"></i>
-                WhatsApp ile Katıl
-            </a>
+        <div class="activity-card">
+            <i class="fas fa-coffee"></i>
+            <span>Kahve Sohbetleri</span>
         </div>
+        <div class="activity-card">
+            <i class="fas fa-star"></i>
+            <span>Özel Partiler</span>
+        </div>
+    </div>
 
-        <p class="footer-text">
-            Sınırlı kontenjan mevcuttur. <br>
-            Şu an <b>aktif davetiye</b> için son adımlar!
-        </p>
+    <a href="https://wa.me/17655566144?text=Merhaba" class="ws-button" id="mainCTA">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp ile Katılın
+    </a>
+
+    <div class="trust-badges">
+        <span><i class="fas fa-check-circle"></i> Ücretsiz Katılım</span>
+        <span><i class="fas fa-check-circle"></i> Güvenli Ortam</span>
     </div>
 </div>
 
 <script>
-    // 追踪按钮点击事件发送给 TikTok Pixel
-    document.getElementById('whatsappBtn').addEventListener('click', function() {
-        ttq.track('Contact', {
-            content_name: 'whatsapp_join_click',
-            value: 1,
-            currency: 'USD'
-        });
-    });
-
-    // 随机增加几个流星效果
-    function createStars() {
-        const bg = document.querySelector('.bg-animate');
-        for(let i=0; i<15; i++) {
-            const star = document.createElement('div');
-            star.style.position = 'absolute';
-            star.style.width = '1px';
-            star.style.height = '1px';
-            star.style.background = 'white';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.opacity = Math.random();
-            bg.appendChild(star);
+    // 确保按钮点击时触发像素转化事件
+    document.getElementById('mainCTA').addEventListener('click', function() {
+        if (typeof ttq !== 'undefined') {
+            ttq.track('Contact', {
+                content_name: 'whatsapp_join',
+                content_category: 'social_group'
+            });
+            console.log('TikTok Pixel: Contact event tracked.');
         }
-    }
-    createStars();
+    });
 </script>
 
 </body>
