@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sanatsal Bir Davet</title>
+
+  <style>
+    :root {
+      --primary-accent: #C5A059; /* 经典的土耳其式金棕色 */
+      --deep-text: #1a1a1a;
+      --bg-gradient: linear-gradient(180deg, #fcfaf7 0%, #f2ede4 100%);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Playfair Display", "Georgia", serif; /* 土耳其语在衬线体下非常有档次 */
+      background: var(--bg-gradient);
+      color: var(--deep-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 600px; /* 缩小宽度，在移动端更紧凑专业 */
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: #3e2723;
+    }
+
+    .subtitle {
+      font-size: 19px;
+      color: var(--primary-accent);
+      margin-bottom: 40px;
+      font-style: italic;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .image-box {
+      margin: 30px 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(62, 39, 35, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .image-box:hover {
+      transform: scale(1.02);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .text {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #4e342e;
+      margin: 35px 0;
+    }
+
+    .text em {
+      font-style: italic;
+      color: var(--primary-accent);
+      font-weight: 500;
+    }
+
+    .cta {
+      margin-top: 50px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 18px 50px;
+      background: #3e2723; /* 深浓咖啡色按钮 */
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(62, 39, 35, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cta a:hover {
+      background: var(--primary-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 15px;
+      color: #8d6e63;
+      letter-spacing: 0.5px;
+    }
+
+    /* 装饰元素 */
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: var(--primary-accent);
+      margin: 30px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Sanatsal Bir Davet</h1>
+
+    <div class="subtitle">
+      Sanatın huzurunda sakin bir an
+    </div>
+
+    <div class="image-box">
+      <img src="https://images.unsplash.com/photo-1511018556341-d16986a1c194?auto=format&fit=crop&w=800&q=80" alt="Sanat ve Kahve">
+    </div>
+
+    <div class="text">
+      Bir esere bakmak,<br>
+      duyguların akışına izin vermek,<br>
+      zamanı durdurmak.
+      <br>
+      <div class="divider"></div>
+      Bu davet, sadece <em>özgür, sanatsal ve beklentisiz bir ana</em> açılan açık bir kapıdır.
+    </div>
+
+    <div class="cta">
+      <a href="https://wa.me/17655566144/?text=Merhaba" target="_blank">
+        Daveti Kabul Et
+      </a>
+    </div>
+
+    <div class="note">
+      Ücretsiz Davet · Taahhüt Yok · Sadece Sanat
+    </div>
+
+  </div>
+</body>
+</html>
