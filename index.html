@@ -1,226 +1,144 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sizi Bekleyen Yeni Bir Sosyal Dünya</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffee & City Moments</title>
 
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f6f6f6;
+      color: #2b2b2b;
+    }
 
-      ttq.load('D62CCDBC77UC1EV4AO9G');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 22px 80px;
+      background: #ffffff;
+    }
 
-    <style>
-        :root {
-            --primary-accent: #6C63FF;
-            --secondary-accent: #00F2FE;
-            --bg-dark: #0F0C29;
-        }
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 30px;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-        }
+    .image-box {
+      margin: 30px 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
 
-        /* 动态背景动画 */
-        .animated-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #0F0C29, #302B63, #24243E);
-            z-index: -1;
-        }
+    .image-box img {
+      width: 100%;
+      display: block;
+    }
 
-        .animated-bg::after {
-            content: '';
-            position: absolute;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 40%);
-            animation: move 15s linear infinite;
-        }
+    .text {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 24px 0;
+      color: #333;
+    }
 
-        @keyframes move {
-            0% { transform: translate(-50%, -50%); }
-            100% { transform: translate(0%, 0%); }
-        }
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
 
-        /* 容器样式 */
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px 25px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
+    .list {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
 
-        .header-badge {
-            display: inline-block;
-            background: rgba(108, 99, 255, 0.2);
-            color: var(--secondary-accent);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-            border: 1px solid var(--primary-accent);
-        }
+    .cta {
+      margin-top: 40px;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-            background: linear-gradient(to right, #fff, #a5a5a5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .cta a {
+      display: inline-block;
+      padding: 14px 34px;
+      background: #1f1f1f;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 30px;
+    }
 
-        p.desc {
-            color: #ccc;
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
+    .cta a:hover {
+      background: #000000;
+    }
 
-        /* 活动卡片网格 */
-        .activity-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-
-        .activity-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 20px 10px;
-            transition: 0.3s;
-        }
-
-        .activity-card i {
-            font-size: 1.5rem;
-            color: var(--secondary-accent);
-            margin-bottom: 10px;
-        }
-
-        .activity-card span {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* 核心WS按钮 */
-        .ws-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
-            text-decoration: none;
-            padding: 18px 20px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            transition: 0.4s;
-            margin-top: 10px;
-        }
-
-        .ws-button i {
-            margin-right: 12px;
-            font-size: 1.6rem;
-        }
-
-        .ws-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
-            filter: brightness(1.1);
-        }
-
-        .trust-badges {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: #888;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .trust-badges span i {
-            color: #25D366;
-            margin-right: 5px;
-        }
-    </style>
+    .disclaimer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #777;
+      line-height: 1.6;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
 
-<div class="animated-bg"></div>
-
-<div class="container">
-    <div class="header-badge">Güzel zamanlar</div>
-    <h1>Sosyal Çevrenizi Genişletin</h1>
-    <p class="desc">Yeni insanlarla tanışın, kültürel etkinliklere katılın ve hayatın tadını çıkarın.</p>
-
-    <div class="activity-grid">
-        <div class="activity-card">
-            <i class="fas fa-users"></i>
-            <span>Yeni Tanışmalar</span>
-        </div>
-        <div class="activity-card">
-            <i class="fas fa-music"></i>
-            <span>Müzik & Dans</span>
-        </div>
-        <div class="activity-card">
-            <i class="fas fa-coffee"></i>
-            <span>Kahve Sohbetleri</span>
-        </div>
-        <div class="activity-card">
-            <i class="fas fa-star"></i>
-            <span>Özel Partiler</span>
-        </div>
+    <h1>Coffee & City Moments</h1>
+    <div class="subtitle">
+      A calm way to learn more about coffee culture
     </div>
 
-    <a href="https://wa.me/17655566144?text=Merhaba" class="ws-button" id="mainCTA">
-        <i class="fab fa-whatsapp"></i>
-        WhatsApp ile Katılın
-    </a>
-
-    <div class="trust-badges">
-        <span><i class="fas fa-check-circle"></i> Ücretsiz Katılım</span>
-        <span><i class="fas fa-check-circle"></i> Güvenli Ortam</span>
+    <div class="image-box">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" alt="Coffee moment">
     </div>
-</div>
 
-<script>
-    // 确保按钮点击时触发像素转化事件
-    document.getElementById('mainCTA').addEventListener('click', function() {
-        if (typeof ttq !== 'undefined') {
-            ttq.track('Contact', {
-                content_name: 'whatsapp_join',
-                content_category: 'social_group'
-            });
-            console.log('TikTok Pixel: Contact event tracked.');
-        }
-    });
-</script>
+    <div class="text">
+      Coffee is not only a drink.  
+      It is a quiet moment in a busy city,  
+      a pause between daily routines.
+    </div>
 
+    <div class="text">
+      This page is created to share general information  
+      about coffee culture, atmosphere, and lifestyle inspiration.
+    </div>
+
+    <div class="section-title">What you will find here</div>
+    <div class="list">
+      • General information about coffee experiences<br>
+      • Calm lifestyle inspiration<br>
+      • No obligations or commitments<br>
+      • Information only, no services offered
+    </div>
+
+    <div class="cta">
+      <!-- 修改为你的 WhatsApp 链接 -->
+      <a href="https://wa.me/1234567890" target="_blank">
+        View detailed information
+      </a>
+    </div>
+
+    <div class="disclaimer">
+      Disclaimer:<br>
+      This page does not provide dating, personal, adult, gambling, or financial services.<br>
+      This is not an invitation, not a promise, and not a commercial offer.<br>
+      All information provided here is for general informational purposes only.<br>
+      Communication is optional and initiated by the user.
+    </div>
+
+  </div>
 </body>
 </html>
