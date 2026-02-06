@@ -10,19 +10,36 @@
   !function (w, d, t) {
     w.TiktokAnalyticsObject=t;
     var ttq=w[t]=w[t]||[];
-    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready"];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
     ttq.setAndDefer=function(t,e){
       t[e]=function(){
-        t.push([e].concat([].slice.call(arguments,0)))
+        t.push([e].concat(Array.prototype.slice.call(arguments,0)))
       }
     };
     for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.instance=function(t){
+      for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);
+      return e
+    };
+    ttq.load=function(e,n){
+      var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;
+      ttq._i=ttq._i||{};
+      ttq._i[e]=[];
+      ttq._i[e]._u=r;
+      ttq._t=ttq._t||{};
+      ttq._t[e]=+new Date;
+      ttq._o=ttq._o||{};
+      ttq._o[e]=n||{};
+      var s=d.createElement("script");
+      s.type="text/javascript";
+      s.async=!0;
+      s.src=r+"?sdkid="+e+"&lib="+t;
+      var f=d.getElementsByTagName("script")[0];
+      f.parentNode.insertBefore(s,f)
+    };
 
     ttq.load('D62VHBRC77U54NGHKPTG');
-
-    /* ✅ 强制 PageView（TikTok 现在最认） */
-    ttq.track('PageView');
-
+    ttq.page();
   }(window, document, 'ttq');
   </script>
   <!-- TikTok Pixel Code End -->
@@ -63,9 +80,6 @@
       font-size: 17px;
       border-radius: 40px;
     }
-    .cta-top a:hover {
-      background: #000000;
-    }
     .image-box {
       margin: 26px 0;
       border-radius: 16px;
@@ -105,17 +119,13 @@
 
 <body>
   <div class="container">
-
     <h1>Kahve & Şehir Anları</h1>
     <div class="subtitle">
       Kahve kültürünü sakin ve doğal bir şekilde keşfedin
     </div>
 
-    <!-- ✅ WhatsApp 点击 = Contact 事件 -->
     <div class="cta-top">
-      <a href="https://wa.me/1234567890"
-         target="_blank"
-         onclick="ttq.track('Contact',{content_name:'whatsapp_click'})">
+      <a href="https://wa.me/1234567890" target="_blank">
         Ücretsiz Kahve
       </a>
     </div>
@@ -130,27 +140,10 @@
       sakin ve dengeli bir andır.
     </div>
 
-    <div class="text">
-      Bu sayfa, kahveye dair genel bilgiler ve
-      yaşam tarzı ilhamı paylaşmak amacıyla hazırlanmıştır.
-    </div>
-
-    <div class="section-title">Bu sayfada neler var?</div>
-    <div class="list">
-      • Kahve kültürü hakkında genel bilgiler<br>
-      • Sakin ve tarafsız içerikler<br>
-      • Herhangi bir taahhüt veya zorunluluk yoktur<br>
-      • İletişim tamamen kullanıcı isteğine bağlıdır
-    </div>
-
     <div class="disclaimer">
       Yasal Uyarı:<br>
-      Bu sayfa arkadaşlık, flört, yetişkin içerik, kumar veya finansal hizmet sunmaz.<br>
-      Bir davet, vaat veya ticari teklif değildir.<br>
-      Tüm içerik yalnızca bilgilendirme amaçlıdır.<br>
-      Her türlü iletişim tamamen gönüllülük esasına dayanır.
+      Bu sayfa arkadaşlık, flört, yetişkin içerik, kumar veya finansal hizmet sunmaz.
     </div>
-
   </div>
 </body>
 </html>
