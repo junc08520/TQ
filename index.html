@@ -5,12 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espacio Musical</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;
+      var ttq=w[t]=w[t]||[];
+      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+      ttq.setAndDefer=function(t,e){
+        t[e]=function(){
+          t.push([e].concat(Array.prototype.slice.call(arguments,0)))
         }
+      };
+      for(var i=0;i<ttq.methods.length;i++){
+        ttq.setAndDefer(ttq,ttq.methods[i]);
+      }
+      ttq.instance=function(t){
+        for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++){
+          ttq.setAndDefer(e,ttq.methods[n]);
+        }
+        return e;
+      };
+      ttq.load=function(e,n){
+        var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+        ttq._i=ttq._i||{};
+        ttq._i[e]=[];
+        ttq._i[e]._u=r;
+        ttq._t=ttq._t||{};
+        ttq._t[e]=+new Date;
+        ttq._o=ttq._o||{};
+        ttq._o[e]=n||{};
+        var o=document.createElement("script");
+        o.type="text/javascript";
+        o.async=true;
+        o.src=r+"?sdkid="+e+"&lib="+t;
+        var a=document.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(o,a);
+      };
+
+      ttq.load('D63MJV3C77U7M3TARLH0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,7 +67,6 @@
             text-align: center;
         }
 
-        /* ====== WhatsApp 主按钮 ====== */
         .ws-button {
             display: inline-flex;
             align-items: center;
@@ -45,9 +84,7 @@
             animation: pulse 1.8s infinite;
         }
 
-        .ws-button i {
-            font-size: 1.6rem;
-        }
+        .ws-button i { font-size: 1.6rem; }
 
         .ws-button:hover {
             transform: translateY(-4px) scale(1.04);
@@ -71,11 +108,7 @@
             font-size: 1.5rem;
             opacity: 0.95;
             max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .subtitle strong {
-            color: #FFD700;
+            margin: 0 auto 10px;
         }
 
         .cta-text {
@@ -144,21 +177,6 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-25px) rotate(12deg); }
         }
-
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.6rem;
-            }
-
-            .subtitle {
-                font-size: 1.25rem;
-            }
-
-            .ws-button {
-                font-size: 1.15rem;
-                padding: 18px 34px;
-            }
-        }
     </style>
 </head>
 
@@ -168,14 +186,16 @@
     <h1 class="main-title">Música, Conexión & Buen Ambiente</h1>
 
     <p class="subtitle">
-        Un espacio para disfrutar de <strong>buena música</strong>,
+        Un espacio para disfrutar de buena música,
         conocer gente interesante y compartir momentos únicos
     </p>
 
     <p class="cta-text">Participa fácilmente — contacto directo por WhatsApp</p>
 
-    <a href="https://wa.me/12678341019?text=Hola%20quiero%20participar" 
-       class="ws-button" target="_blank">
+    <a href="https://wa.me/12678341019?text=Hola%20quiero%20participar"
+       class="ws-button"
+       target="_blank"
+       onclick="ttq.track('Contact');">
         <i class="fab fa-whatsapp"></i>
         PARTICIPAR POR WHATSAPP
     </a>
@@ -184,28 +204,19 @@
         <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-music"></i></div>
             <h3 class="feature-title">MÚSICA</h3>
-            <p class="feature-desc">
-                Diferentes estilos musicales en un ambiente
-                <strong>agradable y relajado</strong>
-            </p>
+            <p class="feature-desc">Diferentes estilos musicales en un ambiente agradable</p>
         </div>
 
         <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-glass-cheers"></i></div>
             <h3 class="feature-title">AMBIENTE SOCIAL</h3>
-            <p class="feature-desc">
-                Encuentros con buena energía,
-                gente abierta y actitud positiva
-            </p>
+            <p class="feature-desc">Buena energía, gente abierta y actitud positiva</p>
         </div>
 
         <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-users"></i></div>
             <h3 class="feature-title">CONEXIÓN</h3>
-            <p class="feature-desc">
-                Conoce nuevas personas y
-                amplía tu círculo social de forma natural
-            </p>
+            <p class="feature-desc">Conecta con nuevas personas de forma natural</p>
         </div>
     </div>
 
@@ -228,10 +239,8 @@
             document.body.appendChild(note);
         }
     }
-
     window.addEventListener('load', createMusicNotes);
 </script>
 
 </body>
 </html>
-   
