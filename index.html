@@ -11,254 +11,227 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px;
-        }
-        
-        .header {
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 60px;
         }
-        
+
+        /* ====== WhatsApp 主按钮 ====== */
         .ws-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: #25D366;
+            gap: 12px;
+            background: linear-gradient(135deg, #25D366, #1da851);
             color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
+            padding: 22px 48px;
+            border-radius: 60px;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            margin-bottom: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.45);
+            margin: 40px auto 50px;
+            animation: pulse 1.8s infinite;
         }
-        
+
+        .ws-button i {
+            font-size: 1.6rem;
+        }
+
         .ws-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-            background: #1da851;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 18px 45px rgba(37, 211, 102, 0.65);
         }
-        
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+            70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
         .main-title {
-            font-size: 3.5rem;
+            font-size: 3.6rem;
             font-weight: 800;
             margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.3);
         }
-        
+
         .subtitle {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            font-size: 1.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 20px;
         }
-        
+
+        .subtitle strong {
+            color: #FFD700;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 10px;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            margin-top: 70px;
         }
-        
+
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 45px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.35s ease;
         }
-        
+
         .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
         }
-        
+
         .feature-icon {
-            font-size: 3rem;
+            font-size: 3.2rem;
             margin-bottom: 25px;
             color: #FFD700;
         }
-        
+
         .feature-title {
-            font-size: 1.8rem;
-            font-weight: 600;
+            font-size: 1.9rem;
+            font-weight: 700;
             margin-bottom: 15px;
         }
-        
+
         .feature-desc {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.15rem;
+            opacity: 0.95;
             line-height: 1.6;
         }
-        
-        .highlight {
-            color: #FFD700;
-            font-weight: bold;
-        }
-        
+
         .footer {
-            text-align: center;
-            margin-top: 80px;
+            margin-top: 90px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.9rem;
-            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.25);
+            font-size: 0.95rem;
+            opacity: 0.85;
         }
-        
+
         .music-note {
             position: absolute;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             opacity: 0.6;
-            animation: float 3s infinite ease-in-out;
+            animation: float 4s infinite ease-in-out;
+            pointer-events: none;
         }
-        
+
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+            50% { transform: translateY(-25px) rotate(12deg); }
         }
-        
+
         @media (max-width: 768px) {
             .main-title {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
             }
-            
+
             .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.25rem;
             }
-            
+
             .ws-button {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-title {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .feature-card {
-                padding: 30px 20px;
+                font-size: 1.15rem;
+                padding: 18px 34px;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="https://wa.me/12678341019?text=Hola" class="ws-button" target="_blank">
-                <i class="fab fa-whatsapp"></i> CONTACTAR POR WHATSAPP
-            </a>
-            
-            <h1 class="main-title">MÚSICA & ENCUENTROS</h1>
-            <p class="subtitle">Un espacio para disfrutar de buena música, conocer personas y vivir momentos especiales</p>
+<div class="container">
+
+    <h1 class="main-title">Música, Conexión & Buen Ambiente</h1>
+
+    <p class="subtitle">
+        Un espacio para disfrutar de <strong>buena música</strong>,
+        conocer gente interesante y compartir momentos únicos
+    </p>
+
+    <p class="cta-text">Participa fácilmente — contacto directo por WhatsApp</p>
+
+    <a href="https://wa.me/12678341019?text=Hola%20quiero%20participar" 
+       class="ws-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        PARTICIPAR POR WHATSAPP
+    </a>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-music"></i></div>
+            <h3 class="feature-title">MÚSICA</h3>
+            <p class="feature-desc">
+                Diferentes estilos musicales en un ambiente
+                <strong>agradable y relajado</strong>
+            </p>
         </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-music"></i>
-                </div>
-                <h3 class="feature-title">MÚSICA</h3>
-                <p class="feature-desc">Variedad de géneros musicales en un ambiente <span class="highlight">perfecto</span> para disfrutar</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-glass-cheers"></i>
-                </div>
-                <h3 class="feature-title">amigo</h3>
-                <p class="feature-desc">Encuentros sociales con <span class="highlight">ambiente positivo</span> y energía vibrante</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3 class="feature-title">CONOCER</h3>
-                <p class="feature-desc">Oportunidad para <span class="highlight">conectar</span> con personas interesantes</p>
-            </div>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-glass-cheers"></i></div>
+            <h3 class="feature-title">AMBIENTE SOCIAL</h3>
+            <p class="feature-desc">
+                Encuentros con buena energía,
+                gente abierta y actitud positiva
+            </p>
         </div>
-        
-        <div class="footer">
-            <p>Espacio de encuentros musicales © 2023 | Todos son bienvenidos</p>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <h3 class="feature-title">CONEXIÓN</h3>
+            <p class="feature-desc">
+                Conoce nuevas personas y
+                amplía tu círculo social de forma natural
+            </p>
         </div>
     </div>
 
-    <script>
-        // Crear notas musicales flotantes
-        function createMusicNotes() {
-            const notes = ['♪', '♫', '♬', '🎵', '🎶'];
-            const colors = ['#FFD700', '#25D366', '#667eea', '#764ba2', '#ffffff'];
-            
-            for (let i = 0; i < 8; i++) {
-                const note = document.createElement('div');
-                note.className = 'music-note';
-                note.textContent = notes[Math.floor(Math.random() * notes.length)];
-                note.style.color = colors[Math.floor(Math.random() * colors.length)];
-                note.style.left = Math.random() * 100 + 'vw';
-                note.style.top = Math.random() * 100 + 'vh';
-                note.style.animationDelay = Math.random() * 2 + 's';
-                note.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-                
-                document.body.appendChild(note);
-            }
+    <div class="footer">
+        Espacio musical y social © 2026 · Todos son bienvenidos
+    </div>
+</div>
+
+<script>
+    function createMusicNotes() {
+        const notes = ['♪', '♫', '♬', '🎵', '🎶'];
+        for (let i = 0; i < 10; i++) {
+            const note = document.createElement('div');
+            note.className = 'music-note';
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            note.style.left = Math.random() * 100 + 'vw';
+            note.style.top = Math.random() * 100 + 'vh';
+            note.style.animationDelay = Math.random() * 3 + 's';
+            note.style.fontSize = (Math.random() * 2 + 1.2) + 'rem';
+            document.body.appendChild(note);
         }
-        
-        // Efecto hover en las tarjetas
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.03)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Efecto de aparición suave
-        window.addEventListener('load', function() {
-            createMusicNotes();
-            
-            const elements = document.querySelectorAll('.main-title, .subtitle, .feature-card');
-            elements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 200);
-            });
-        });
-    </script>
+    }
+
+    window.addEventListener('load', createMusicNotes);
+</script>
+
 </body>
 </html>
+   
