@@ -1,224 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espacio Musical</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espacio Musical</title>
 
-    <!-- TikTok Pixel Code Start -->
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;
-      var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-      ttq.setAndDefer=function(t,e){
-        t[e]=function(){
-          t.push([e].concat(Array.prototype.slice.call(arguments,0)))
-        }
-      };
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.instance=function(t){
-        for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)
-          ttq.setAndDefer(e,ttq.methods[n]);
-        return e
-      };
-      ttq.load=function(e,n){
-        var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-        ttq._i=ttq._i||{};
-        ttq._i[e]=[];
-        ttq._i[e]._u=r;
-        ttq._t=ttq._t||{};
-        ttq._t[e]=+new Date;
-        ttq._o=ttq._o||{};
-        ttq._o[e]=n||{};
-        n=document.createElement("script");
-        n.type="text/javascript";
-        n.async=!0;
-        n.src=r+"?sdkid="+e+"&lib="+t;
-        e=document.getElementsByTagName("script")[0];
-        e.parentNode.insertBefore(n,e)
-      };
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-      ttq.load('D6500FBC77U25FF4E440');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
+<!-- TikTok Pixel -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject = t;
+  var ttq = w[t] = w[t] || [];
+  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer = function(t, e) {
+    t[e] = function() {
+      t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+    }
+  };
+  for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  ttq.load = function(e) {
+    var n = document.createElement("script");
+    n.async = true;
+    n.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=ttq";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(n, s);
+  };
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+  ttq.load('D6500FBC77U25FF4E440');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .ws-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #25D366, #1da851);
-            color: white;
-            padding: 22px 48px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 700;
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.45);
-            margin: 40px auto 50px;
-            animation: pulse 1.8s infinite;
-        }
-
-        .ws-button:hover {
-            transform: translateY(-4px) scale(1.04);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
-            70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
-            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-        }
-
-        .main-title {
-            font-size: 3.6rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 10px;
-        }
-
-        .cta-text {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-bottom: 10px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 70px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            border-radius: 22px;
-            padding: 45px 30px;
-            transition: all 0.35s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-12px);
-        }
-
-        .feature-icon {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            color: #FFD700;
-        }
-
-        .feature-title {
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .feature-desc {
-            font-size: 1.15rem;
-            line-height: 1.6;
-        }
-
-        .footer {
-            margin-top: 90px;
-            padding-top: 30px;
-            font-size: 0.95rem;
-            opacity: 0.85;
-        }
-
-        .music-note {
-            position: absolute;
-            font-size: 1.6rem;
-            opacity: 0.6;
-            animation: float 4s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
-    </style>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+.ws-button {
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:22px 48px;
+  border-radius:60px;
+  background:#25D366;
+  color:#fff;
+  font-size:1.3rem;
+  font-weight:700;
+  text-decoration:none;
+}
+</style>
 </head>
 
 <body>
-<div class="container">
 
-    <h1 class="main-title">Música, Conexión & Buen Ambiente</h1>
+<h1>Música, Conexión & Buen Ambiente</h1>
+<p>Conecta, disfruta y participa fácilmente</p>
 
-    <p class="subtitle">
-        Un espacio para disfrutar de buena música,
-        conocer gente interesante y compartir momentos únicos
-    </p>
-
-    <p class="cta-text">Participa fácilmente — contacto directo por WhatsApp</p>
-
-    <a href="https://wa.me/12678341019?text=Hola.%20quiero%20participar"
-       class="ws-button"
-       target="_blank"
-       onclick="ttq.track('Contact');">
-        <i class="fab fa-whatsapp"></i>
-        PARTICIPAR POR WHATSAPP
-    </a>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-music"></i></div>
-            <h3 class="feature-title">MÚSICA</h3>
-            <p class="feature-desc">Diferentes estilos musicales en un ambiente agradable</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-users"></i></div>
-            <h3 class="feature-title">CONEXIÓN</h3>
-            <p class="feature-desc">Conecta con nuevas personas de forma natural</p>
-        </div>
-    </div>
-
-    <div class="footer">
-        Espacio musical y social © 2026 · Todos son bienvenidos
-    </div>
-</div>
+<a href="#" class="ws-button" onclick="goWhatsApp(event)">
+  <i class="fab fa-whatsapp"></i> PARTICIPAR POR WHATSAPP
+</a>
 
 <script>
-function createMusicNotes() {
-    const notes = ['♪','♫','🎵','🎶'];
-    for (let i = 0; i < 8; i++) {
-        const note = document.createElement('div');
-        note.className = 'music-note';
-        note.textContent = notes[Math.floor(Math.random() * notes.length)];
-        note.style.left = Math.random() * 100 + 'vw';
-        note.style.top = Math.random() * 100 + 'vh';
-        document.body.appendChild(note);
-    }
+// 页面内容事件（提高广告质量）
+window.addEventListener('load', function () {
+  if (window.ttq) {
+    ttq.track('ViewContent', {
+      content_name: 'Espacio Musical Landing'
+    });
+  }
+});
+
+// WhatsApp 点击 + 双事件
+function goWhatsApp(e) {
+  e.preventDefault();
+
+  if (window.ttq) {
+    ttq.track('Contact', {
+      content_name: 'WhatsApp Button'
+    });
+
+    ttq.track('Lead', {
+      content_name: 'WhatsApp Lead'
+    });
+  }
+
+  setTimeout(function () {
+    window.open(
+      'https://wa.me/12678341019?text=Hola.%20quiero%20participar',
+      '_blank'
+    );
+  }, 700);
 }
-window.addEventListener('load', createMusicNotes);
 </script>
 
 </body>
