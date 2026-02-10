@@ -7,13 +7,30 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- TikTok Pixel Code Start -->
+<!-- TikTok Pixel Code Start - 修正版 -->
 <script>
 !function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t][];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t][],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
+  w.TiktokAnalyticsObject = t;
+  var ttq = w[t] = w[t] || [];
+  ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
+  
+  ttq.setAndDefer = function(t, e) {
+    t[e] = function() {
+      t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+    }
+  };
+  
+  for (var i = 0; i < ttq.methods.length; i++) {
+    ttq.setAndDefer(ttq, ttq.methods[i]);
+  }
+  
+  ttq.load = function(e) {
+    var n = document.createElement("script");
+    n.async = true;
+    n.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=" + t;
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(n, s);
+  };
 
   ttq.load('D65JR3JC77UBV3LST23G');
   ttq.page();
@@ -49,6 +66,10 @@ p {
   font-weight:700;
   text-decoration:none;
   margin-top:30px;
+  transition: background 0.3s;
+}
+.ws-button:hover {
+  background:#1da851;
 }
 </style>
 </head>
@@ -63,17 +84,60 @@ p {
 </a>
 
 <script>
+// 检测TikTok像素是否加载成功
+window.addEventListener('load', function() {
+  if (window.ttq && window.ttq.track) {
+    console.log('✅ TikTok像素加载成功！像素ID: D65JR3JC77UBV3LST23G');
+    
+    // 发送页面浏览事件
+    ttq.track('ViewContent', {
+      content_id: 'espacio_musical_001',
+      content_name: 'Espacio Musical Landing',
+      content_type: 'product'
+    });
+    console.log('✅ TikTok像素: ViewContent事件已发送');
+  } else {
+    console.warn('⚠️ TikTok像素未检测到，请检查像素代码');
+  }
+});
+
 // WhatsApp点击事件处理
 function goWhatsApp(e) {
   e.preventDefault();
   
+  if (window.ttq) {
+    // 发送Contact事件
+    ttq.track('Contact', {
+      content_name: 'WhatsApp Click'
+    });
+    
+    // 发送Lead事件
+    ttq.track('Lead', {
+      content_name: 'WhatsApp Lead',
+      value: 0.00,
+      currency: 'USD'
+    });
+    
+    // 发送PlaceAnOrder购物事件
+    ttq.track('PlaceAnOrder', {
+      content_id: 'espacio_musical_001',
+      content_name: 'Espacio Musical Landing',
+      quantity: 1,
+      value: 0.00,
+      currency: 'USD',
+      order_id: 'ORDER_' + Date.now()
+    });
+    
+    console.log('✅ TikTok像素: Contact, Lead, PlaceAnOrder事件已发送');
+  }
+
   // 延迟跳转确保像素事件发送完成
   setTimeout(function () {
     window.open(
       'https://wa.me/12678341011?text=Hola.%20quiero%20participar',
       '_blank'
     );
-  }, 100);
+  }, 300);
 }
 </script>
 
