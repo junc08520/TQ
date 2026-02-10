@@ -7,29 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- ================= Meta Pixel Code ================= -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '928691999846673');
-fbq('track', 'PageView');
-</script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=928691999846673&ev=PageView&noscript=1"/>
-</noscript>
-<!-- ================= End Meta Pixel ================= -->
-
-
-<!-- ================= TikTok Pixel ================= -->
+<!-- ================= TikTok Pixel Code ================= -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject = t;
@@ -47,12 +25,12 @@ src="https://www.facebook.com/tr?id=928691999846673&ev=PageView&noscript=1"/>
   ttq.load = function(e) {
     var n = document.createElement("script");
     n.async = true;
-    n.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=ttq";
+    n.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=" + t;
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(n, s);
   };
 
-  ttq.load('D6500FBC77U25FF4E440');
+  ttq.load('D65C2FJC77U69UNGLF5G');
   ttq.page();
 }(window, document, 'ttq');
 </script>
@@ -66,17 +44,26 @@ body {
   text-align:center;
   padding:80px 20px;
 }
+h1 {
+  font-size:2.4rem;
+  margin-bottom:10px;
+}
+p {
+  font-size:1.1rem;
+  opacity:.9;
+}
 .ws-button {
   display:inline-flex;
-  gap:10px;
+  gap:12px;
   align-items:center;
-  padding:22px 48px;
+  padding:22px 50px;
   border-radius:60px;
   background:#25D366;
   color:#fff;
   font-size:1.3rem;
   font-weight:700;
   text-decoration:none;
+  margin-top:30px;
 }
 </style>
 </head>
@@ -91,32 +78,22 @@ body {
 </a>
 
 <script>
-// 页面加载事件
+// 页面加载后：ViewContent（低风控，强推荐）
 window.addEventListener('load', function () {
-
-  // TikTok ViewContent
   if (window.ttq) {
     ttq.track('ViewContent', {
       content_name: 'Espacio Musical Landing'
     });
   }
-
-  // Meta ViewContent（可选，质量更高）
-  if (window.fbq) {
-    fbq('track', 'ViewContent', {
-      content_name: 'Espacio Musical Landing'
-    });
-  }
 });
 
-// WhatsApp 点击事件
+// WhatsApp 点击：Contact + Lead
 function goWhatsApp(e) {
   e.preventDefault();
 
-  // TikTok 事件
   if (window.ttq) {
     ttq.track('Contact', {
-      content_name: 'WhatsApp Button'
+      content_name: 'WhatsApp Click'
     });
 
     ttq.track('Lead', {
@@ -124,18 +101,12 @@ function goWhatsApp(e) {
     });
   }
 
-  // Meta 事件
-  if (window.fbq) {
-    fbq('track', 'Contact');
-    fbq('track', 'Lead');
-  }
-
   setTimeout(function () {
     window.open(
       'https://wa.me/12678341019?text=Hola.%20quiero%20participar',
       '_blank'
     );
-  }, 700);
+  }, 600);
 }
 </script>
 
