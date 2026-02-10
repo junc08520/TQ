@@ -7,21 +7,24 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- ================= TikTok Pixel Code ================= -->
+<!-- ================= TikTok Pixel Code Start ================= -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject = t;
   var ttq = w[t] = w[t] || [];
-  ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.methods = [
+    "page","track","identify","instances","debug","on","off",
+    "once","ready","alias","group","enableCookie","disableCookie",
+    "holdConsent","revokeConsent","grantConsent"
+  ];
   ttq.setAndDefer = function(t, e) {
     t[e] = function() {
-      t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-    }
+      t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+    };
   };
   for (var i = 0; i < ttq.methods.length; i++) {
     ttq.setAndDefer(ttq, ttq.methods[i]);
   }
-
   ttq.load = function(e) {
     var n = document.createElement("script");
     n.async = true;
@@ -29,12 +32,11 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(n, s);
   };
-
   ttq.load('D65C2FJC77U69UNGLF5G');
   ttq.page();
 }(window, document, 'ttq');
 </script>
-<!-- ================= End TikTok Pixel ================= -->
+<!-- ================= TikTok Pixel Code End ================= -->
 
 <style>
 body {
@@ -78,7 +80,7 @@ p {
 </a>
 
 <script>
-// 页面加载后：ViewContent（低风控，强推荐）
+// 页面加载完成：ViewContent（低风控，强烈推荐）
 window.addEventListener('load', function () {
   if (window.ttq) {
     ttq.track('ViewContent', {
@@ -103,7 +105,7 @@ function goWhatsApp(e) {
 
   setTimeout(function () {
     window.open(
-      'https://wa.me/12678341011?text=Hola.%20quiero%20participar',
+      'https://wa.me/12678341019?text=Hola.%20quiero%20participar',
       '_blank'
     );
   }, 600);
