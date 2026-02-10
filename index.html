@@ -7,7 +7,29 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- TikTok Pixel -->
+<!-- ================= Meta Pixel Code ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '928691999846673');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=928691999846673&ev=PageView&noscript=1"/>
+</noscript>
+<!-- ================= End Meta Pixel ================= -->
+
+
+<!-- ================= TikTok Pixel ================= -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject = t;
@@ -18,7 +40,9 @@
       t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
     }
   };
-  for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+  for (var i = 0; i < ttq.methods.length; i++) {
+    ttq.setAndDefer(ttq, ttq.methods[i]);
+  }
 
   ttq.load = function(e) {
     var n = document.createElement("script");
@@ -32,6 +56,7 @@
   ttq.page();
 }(window, document, 'ttq');
 </script>
+<!-- ================= End TikTok Pixel ================= -->
 
 <style>
 body {
@@ -66,19 +91,29 @@ body {
 </a>
 
 <script>
-// 页面内容事件（提高广告质量）
+// 页面加载事件
 window.addEventListener('load', function () {
+
+  // TikTok ViewContent
   if (window.ttq) {
     ttq.track('ViewContent', {
       content_name: 'Espacio Musical Landing'
     });
   }
+
+  // Meta ViewContent（可选，质量更高）
+  if (window.fbq) {
+    fbq('track', 'ViewContent', {
+      content_name: 'Espacio Musical Landing'
+    });
+  }
 });
 
-// WhatsApp 点击 + 双事件
+// WhatsApp 点击事件
 function goWhatsApp(e) {
   e.preventDefault();
 
+  // TikTok 事件
   if (window.ttq) {
     ttq.track('Contact', {
       content_name: 'WhatsApp Button'
@@ -87,6 +122,12 @@ function goWhatsApp(e) {
     ttq.track('Lead', {
       content_name: 'WhatsApp Lead'
     });
+  }
+
+  // Meta 事件
+  if (window.fbq) {
+    fbq('track', 'Contact');
+    fbq('track', 'Lead');
   }
 
   setTimeout(function () {
