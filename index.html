@@ -3,112 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espacio Musical</title>
+<title>Fiesta Exclusiva</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- ================= TikTok Pixel Code Start ================= -->
+<!-- ================= Meta Pixel Code ================= -->
 <script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject = t;
-  var ttq = w[t] = w[t] || [];
-  ttq.methods = [
-    "page","track","identify","instances","debug","on","off",
-    "once","ready","alias","group","enableCookie","disableCookie",
-    "holdConsent","revokeConsent","grantConsent"
-  ];
-  ttq.setAndDefer = function(t, e) {
-    t[e] = function() {
-      t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-    };
-  };
-  for (var i = 0; i < ttq.methods.length; i++) {
-    ttq.setAndDefer(ttq, ttq.methods[i]);
-  }
-  ttq.load = function(e) {
-    var n = document.createElement("script");
-    n.async = true;
-    n.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=" + t;
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(n, s);
-  };
-  ttq.load('D65C2FJC77U69UNGLF5G');
-  ttq.page();
-}(window, document, 'ttq');
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '911016184811797');
+fbq('track', 'PageView');
 </script>
-<!-- ================= TikTok Pixel Code End ================= -->
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=911016184811797&ev=PageView&noscript=1"/>
+</noscript>
+<!-- ================= End Meta Pixel Code ================= -->
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#667eea,#764ba2);
-  color:#fff;
-  text-align:center;
-  padding:80px 20px;
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background: radial-gradient(circle at 20% 20%, #ff00cc, transparent 40%),
+                radial-gradient(circle at 80% 30%, #3333ff, transparent 40%),
+                radial-gradient(circle at 50% 80%, #ff6600, transparent 40%),
+                linear-gradient(135deg,#1a0026,#000814);
+    background-blend-mode: screen;
+    overflow:hidden;
 }
-h1 {
-  font-size:2.4rem;
-  margin-bottom:10px;
+
+.container{
+    max-width:550px;
+    padding:40px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    border-radius:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
-p {
-  font-size:1.1rem;
-  opacity:.9;
+
+h1{
+    font-size:36px;
+    margin-bottom:15px;
+    letter-spacing:1px;
 }
-.ws-button {
-  display:inline-flex;
-  gap:12px;
-  align-items:center;
-  padding:22px 50px;
-  border-radius:60px;
-  background:#25D366;
-  color:#fff;
-  font-size:1.3rem;
-  font-weight:700;
-  text-decoration:none;
-  margin-top:30px;
+
+p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 45px;
+    background: linear-gradient(90deg,#ff00cc,#ff6600);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:40px;
+    text-decoration:none;
+    transition:0.3s ease;
+    box-shadow:0 10px 30px rgba(255,0,120,0.5);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(255,0,120,0.7);
+}
+
+.small{
+    margin-top:20px;
+    font-size:14px;
+    opacity:0.85;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Música, Conexión & Buen Ambiente</h1>
-<p>Conecta, disfruta y participa fácilmente</p>
+<div class="container">
+    <h1>¡Gran Fiesta Privada!</h1>
 
-<a href="#" class="ws-button" onclick="goWhatsApp(event)">
-  <i class="fab fa-whatsapp"></i> PARTICIPAR POR WHATSAPP
-</a>
+    <p>
+        Música vibrante, ambiente increíble y una noche llena de buena energía.  
+        Vive algo diferente y conecta con personas que también quieren disfrutar.
+    </p>
+
+    <a class="btn" 
+       href="https://wa.me/12678341019?text=Hola%20quiero%20unirme%20a%20la%20fiesta" 
+       target="_blank"
+       onclick="trackLead()">
+        Unirme y conocer más
+    </a>
+
+    <div class="small">
+        Evento gratuito · Acceso por invitación
+    </div>
+</div>
 
 <script>
-// 页面加载完成：ViewContent（低风控，强烈推荐）
-window.addEventListener('load', function () {
-  if (window.ttq) {
-    ttq.track('ViewContent', {
-      content_name: 'Espacio Musical Landing'
-    });
-  }
-});
-
-// WhatsApp 点击：Contact + Lead
-function goWhatsApp(e) {
-  e.preventDefault();
-
-  if (window.ttq) {
-    ttq.track('Contact', {
-      content_name: 'WhatsApp Click'
-    });
-
-    ttq.track('Lead', {
-      content_name: 'WhatsApp Lead'
-    });
-  }
-
-  setTimeout(function () {
-    window.open(
-      'https://wa.me/12678341019?text=Hola.%20quiero%20participar',
-      '_blank'
-    );
-  }, 600);
+// 按钮点击时触发 Lead 事件（提高广告优化效果）
+function trackLead(){
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+    }
 }
 </script>
 
