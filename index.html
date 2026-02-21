@@ -101,10 +101,11 @@ p{
         Doživite nekaj drugačnega in spoznajte ljudi, ki znajo uživati življenje.
     </p>
 
+    <!-- ⭐ 按钮（已修复：Meta 可检测） -->
     <a class="btn" 
        href="https://wa.me/17655566144?text=Živijo,%20želim%20se%20prijaviti%20na%20zabavo" 
        target="_blank"
-       onclick="trackLead()">
+       onclick="fbq('track','Contact');">
         Prijavi se in izvedi več
     </a>
 
@@ -112,14 +113,6 @@ p{
         Brezplačen dogodek · Vstop samo s povabilom
     </div>
 </div>
-
-<script>
-function trackLead(){
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead');
-    }
-}
-</script>
 
 </body>
 </html>
