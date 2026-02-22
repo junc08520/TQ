@@ -21,66 +21,50 @@ fbq('track', 'PageView');
 <!-- End Meta Pixel Code -->
 
 <style>
-body{
-margin:0;
-background:#0f0f14;
-color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
+body {
+    margin:0;
+    background:#0f0f14;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
 }
 
-.container{
-max-width:500px;
-padding:30px;
+.container {
+    max-width:500px;
+    padding:30px;
 }
 
-h1{
-font-size:28px;
-font-weight:600;
-margin-bottom:20px;
+h1 {
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:20px;
 }
 
-p{
-color:#aaa;
-margin-bottom:40px;
-line-height:1.6;
+p {
+    color:#aaa;
+    margin-bottom:40px;
+    line-height:1.6;
 }
 
-button{
-background:#ff4458;
-border:none;
-padding:16px 30px;
-font-size:16px;
-border-radius:30px;
-color:white;
-cursor:pointer;
-transition:0.3s;
+button {
+    background:#ff4458;
+    border:none;
+    padding:16px 30px;
+    font-size:16px;
+    border-radius:30px;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-button:hover{
-background:#ff2e45;
+button:hover {
+    background:#ff2e45;
 }
 </style>
-
-<script>
-function joinNow(){
-  // 联系事件
-  fbq('track', 'Contact');
-
-  // 购物事件（测试优化用）
-  fbq('track', 'Purchase', {
-    value: 1.00,
-    currency: 'USD'
-  });
-
-  // 跳转到指定 WhatsApp
-  window.location.href="https://wa.me/1234567890";
-}
-</script>
 
 </head>
 
@@ -88,14 +72,34 @@ function joinNow(){
 <div class="container">
 <h1>Discover Your Private Match</h1>
 <p>
-Our intelligent matching system connects you with
-like-minded people instantly.
-No profiles. No endless swiping.
-Just one step to begin.
+Our intelligent matching system connects you with like-minded people instantly.<br>
+No profiles. No endless swiping.<br>
+Just one step to begin your private experience.
 </p>
 
-<button onclick="joinNow()">Start Matching</button>
+<button id="wsButton">Start Matching</button>
 
 </div>
+
+<script>
+// 确保按钮事件可靠触发
+document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('wsButton');
+    btn.addEventListener('click', function(){
+        // Contact 事件
+        fbq('track', 'Contact');
+
+        // Purchase 事件（测试优化用）
+        fbq('track', 'Purchase', {
+            value: 1.00,
+            currency: 'USD'
+        });
+
+        // 跳转 WhatsApp
+        window.location.href="https://wa.me/1234567890";
+    });
+});
+</script>
+
 </body>
 </html>
