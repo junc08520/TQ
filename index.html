@@ -1,124 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Match Experience</title>
-
-<!-- ================= Meta Pixel Codes ================= -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-// 原 Pixel
-fbq('init', '3447081742113493');
-// 新 Pixel
-fbq('init', '2395401230933118');
-
-// 页面访问事件
-fbq('track', 'PageView');
-</script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3447081742113493&ev=PageView&noscript=1" />
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2395401230933118&ev=PageView&noscript=1" />
-</noscript>
-<!-- ================= End Meta Pixel Codes ================= -->
-
-<style>
-body {
-    margin:0;
-    background: linear-gradient(135deg, #1b1b2f, #0f0f14);
-    color:#fff;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    text-align:center;
-}
-
-.container {
-    max-width:520px;
-    padding:40px;
-    background: rgba(255,255,255,0.03);
-    border-radius:20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-}
-
-h1 {
-    font-size:32px;
-    font-weight:700;
-    margin-bottom:20px;
-    letter-spacing:1px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-
-p {
-    color:#ccc;
-    margin-bottom:50px;
-    line-height:1.8;
-    font-size:16px;
-}
-
-button {
-    background: linear-gradient(90deg,#ff4458,#ff2e45);
-    border:none;
-    padding:18px 40px;
-    font-size:17px;
-    border-radius:35px;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow: 0 6px 15px rgba(255,68,88,0.4);
-}
-
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(255,68,88,0.6);
-}
-</style>
-</head>
-
-<body>
-<div class="container">
-<h1>Discover Your Private Match</h1>
-<p>
-Step into a world where connections happen instantly.<br>
-No endless swipes, no profiles to browse.<br>
-Just one click to start your private matching experience.
-</p>
-
-<button id="wsButton">Start Matching</button>
-
-</div>
+<button id="matchBtn" class="elegant-gradient-btn">
+  <span id="btnText">⚡️ 立即寻找匹配对象</span>
+  <div id="loader" style="display:none;">深度算法匹配中...</div>
+</button>
 
 <script>
-// 按钮事件绑定，保证 Meta Pixel 可识别
-document.addEventListener('DOMContentLoaded', function(){
-    var btn = document.getElementById('wsButton');
-    btn.addEventListener('click', function(){
-        // 两个 Pixel 都触发 Contact
-        fbq('track', 'Contact');
-        fbq('track', 'Contact', {pixelId:'2395401230933118'});
-
-        // 两个 Pixel 都触发 Purchase（测试优化）
-        fbq('track', 'Purchase', {value:1.00, currency:'USD'});
-        fbq('track', 'Purchase', {value:1.00, currency:'USD', pixelId:'2395401230933118'});
-
-        // 跳转 WhatsApp
-        window.location.href="https://wa.me/+17655566144";
-    });
-});
+document.getElementById('matchBtn').onclick = function() {
+    // 1. 视觉交互：切换加载状态
+    document.getElementById('btnText').style.display = 'none';
+    document.getElementById('loader').style.display = 'block';
+    
+    // 2. 模拟匹配延迟，增加仪式感和专业度
+    setTimeout(() => {
+        const phoneNumber = "你的WS账号(带国家代码)"; // 例如 85212345678
+        const message = encodeURIComponent("你好！我刚在 Lumina 完成了匹配，想认识一下新朋友 ✨");
+        
+        // 3. 执行跳转
+        window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+    }, 1500);
+};
 </script>
-</body>
-</html>
