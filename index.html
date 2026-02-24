@@ -1,21 +1,120 @@
-<button id="matchBtn" class="elegant-gradient-btn">
-  <span id="btnText">⚡️ 立即寻找匹配对象</span>
-  <div id="loader" style="display:none;">深度算法匹配中...</div>
-</button>
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekskluzivna Zabava</title>
 
 <script>
-document.getElementById('matchBtn').onclick = function() {
-    // 1. 视觉交互：切换加载状态
-    document.getElementById('btnText').style.display = 'none';
-    document.getElementById('loader').style.display = 'block';
-    
-    // 2. 模拟匹配延迟，增加仪式感和专业度
-    setTimeout(() => {
-        const phoneNumber = "你的WS账号(带国家代码)"; // 例如 85212345678
-        const message = encodeURIComponent("你好！我刚在 Lumina 完成了匹配，想认识一下新朋友 ✨");
-        
-        // 3. 执行跳转
-        window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
-    }, 1500);
-};
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1242226351386847'); // 已更新为您提供的 Pixel ID
+fbq('track', 'PageView');
 </script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1242226351386847&ev=PageView&noscript=1"/>
+</noscript>
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background: radial-gradient(circle at 20% 20%, #ff00cc, transparent 40%),
+                radial-gradient(circle at 80% 30%, #3333ff, transparent 40%),
+                radial-gradient(circle at 50% 80%, #ff6600, transparent 40%),
+                linear-gradient(135deg,#1a0026,#000814);
+    background-blend-mode: screen;
+    overflow:hidden;
+}
+
+.container{
+    max-width:550px;
+    padding:40px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    border-radius:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+h1{
+    font-size:36px;
+    margin-bottom:15px;
+    font-weight: bold;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 45px;
+    background: linear-gradient(90deg,#ff00cc,#ff6600);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:40px;
+    text-decoration:none;
+    transition:0.3s ease;
+    box-shadow:0 10px 30px rgba(255,0,120,0.5);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(255,0,120,0.7);
+}
+
+.small{
+    margin-top:20px;
+    font-size:14px;
+    opacity:0.85;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Velika Zasebna Zabava!</h1>
+
+    <p>
+        Vibrirajoča glasba, fantastično vzdušje in noč, polna dobre energije. 
+        Doživite nekaj drugačnega in spoznajte ljudi, ki znajo uživati življenje.
+    </p>
+
+    <a class="btn" 
+       href="https://wa.me/12678341019?text=Živijo,%20želim%20se%20prijaviti%20na%20zabavo" 
+       target="_blank"
+       onclick="trackLead()">
+        Prijavi se in izvedi več
+    </a>
+
+    <div class="small">
+        Brezplačen dogodek · Vstop samo s povabilom
+    </div>
+</div>
+
+<script>
+function trackLead(){
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+    }
+}
+</script>
+
+</body>
+</html>
