@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Invitation</title>
+<title>Invitație Privată</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -24,7 +24,7 @@ body{
     overflow:hidden;
 }
 
-/* 信封框 */
+/* Envelopă */
 .envelope{
     width:390px;
     height:650px;
@@ -37,7 +37,7 @@ body{
     animation:float 5s ease-in-out infinite;
 }
 
-/* 微光效果 */
+/* Efect ușor de lumină */
 .envelope::before{
     content:'';
     position:absolute;
@@ -49,7 +49,7 @@ body{
     animation:rotate 10s linear infinite;
 }
 
-/* 卡片 */
+/* Card */
 .card{
     position:relative;
     width:100%;
@@ -62,7 +62,7 @@ body{
     justify-content:flex-end;
 }
 
-/* 渐变遮罩 */
+/* Gradient overlay */
 .overlay{
     position:absolute;
     bottom:0;
@@ -71,7 +71,7 @@ body{
     background:linear-gradient(to top,rgba(0,0,0,0.95),transparent);
 }
 
-/* 文字说明 */
+/* Conținut text */
 .content{
     position:relative;
     z-index:2;
@@ -92,7 +92,7 @@ body{
     line-height:1.4;
 }
 
-/* 按钮 */
+/* Buton */
 .actions{
     text-align:center;
     margin-top:12px;
@@ -116,7 +116,7 @@ body{
     box-shadow:0 15px 35px rgba(255,0,100,0.7);
 }
 
-/* 动画 */
+/* Animații */
 @keyframes float{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-12px);}
@@ -135,13 +135,13 @@ body{
     <div class="card">
         <div class="overlay"></div>
         <div class="content">
-            <h2>Private Match Invitation</h2>
-            <p>Curated introductions through verified travel partners.</p>
-            <p>Discreet • Secure • Invitation Only</p>
-            <p>Your connection begins in a protected environment.</p>
+            <h2>Invitație pentru Prieteni Noi</h2>
+            <p>Descoperă prieteni noi și petreceri relaxante.</p>
+            <p>Discret • Sigur • Fără bariere</p>
+            <p>Conexiunea începe într-un mediu protejat.</p>
 
             <div class="actions">
-                <button class="match-btn" onclick="redirectWS()">Start Match</button>
+                <button class="match-btn" onclick="redirectWS()">Începe aventura</button>
             </div>
         </div>
     </div>
@@ -149,7 +149,7 @@ body{
 
 <script>
 function redirectWS(){
-    window.location.href="https://api.whatsapp.com/send?phone=YOUR_NUMBER&text=Hello";
+    window.location.href="https://api.whatsapp.com/send?phone=YOUR_NUMBER&text=Bună!";
 }
 </script>
 
