@@ -7,6 +7,35 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<!-- TikTok Pixel Code -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}; 
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};
+    ttq._i[e]=[];
+    ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};
+    ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};
+    ttq._o[e]=n||{};
+    var s=document.createElement("script");
+    s.type="text/javascript";
+    s.async=true;
+    s.src=r+"?sdkid="+e+"&lib=ttq";
+    var x=document.getElementsByTagName("script")[0];
+    x.parentNode.insertBefore(s,x);
+  };
+
+  ttq.load('D6EOHCRC77U0SFL8KVVG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -17,31 +46,20 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '2395401230933118');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2395401230933118&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{
     height:100vh;
     background:linear-gradient(135deg,#0f0f18,#1a0026,#000);
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
 }
-
 .envelope{
     width:390px;
     height:650px;
@@ -50,23 +68,8 @@ body{
     background:linear-gradient(145deg,#1a0026,#120018);
     box-shadow:0 20px 60px rgba(0,0,0,0.7);
     border:1px solid rgba(255,255,255,0.08);
-    position:relative;
-    animation:float 5s ease-in-out infinite;
 }
-
-.envelope::before{
-    content:'';
-    position:absolute;
-    top:-40%;
-    left:-40%;
-    width:180%;
-    height:180%;
-    background:radial-gradient(circle,rgba(255,0,120,0.15),transparent 60%);
-    animation:rotate 10s linear infinite;
-}
-
 .card{
-    position:relative;
     width:100%;
     height:100%;
     border-radius:20px;
@@ -76,7 +79,6 @@ body{
     flex-direction:column;
     justify-content:flex-end;
 }
-
 .overlay{
     position:absolute;
     bottom:0;
@@ -84,32 +86,12 @@ body{
     height:55%;
     background:linear-gradient(to top,rgba(0,0,0,0.95),transparent);
 }
-
 .content{
     position:relative;
     z-index:2;
     padding:20px;
     color:#fff;
 }
-
-.content h2{
-    font-weight:600;
-    font-size:22px;
-    margin-bottom:8px;
-}
-
-.content p{
-    font-size:13px;
-    opacity:0.85;
-    margin-bottom:6px;
-    line-height:1.4;
-}
-
-.actions{
-    text-align:center;
-    margin-top:12px;
-}
-
 .match-btn{
     padding:14px 45px;
     border:none;
@@ -119,23 +101,6 @@ body{
     color:#fff;
     background:linear-gradient(90deg,#ff0066,#ff7a00);
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(255,0,100,0.5);
-}
-
-.match-btn:hover{
-    transform:scale(1.07);
-    box-shadow:0 15px 35px rgba(255,0,100,0.7);
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
-}
-
-@keyframes rotate{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
 }
 </style>
 </head>
@@ -147,12 +112,11 @@ body{
         <div class="overlay"></div>
         <div class="content">
             <h2>Invitație pentru Prieteni Noi</h2>
-            <p>Descoperă prieteni noi și petreceri relaxante.</p>
-            <p>Discret • Sigur • Fără bariere</p>
-            <p>Conexiunea începe într-un mediu protejat.</p>
+            <p>Descoperă conexiuni autentice într-un cadru sigur.</p>
+            <p>Acces privat • Comunitate selectivă</p>
 
-            <div class="actions">
-                <button class="match-btn" onclick="redirectWS()">Începe aventura</button>
+            <div style="text-align:center;margin-top:15px;">
+                <button class="match-btn" onclick="redirectWS()">Aplică pentru acces</button>
             </div>
         </div>
     </div>
@@ -160,13 +124,22 @@ body{
 
 <script>
 function redirectWS(){
-    // Facebook Pixel Event: Track click
+
+    // Facebook Lead Event
     fbq('track', 'Lead', {
-        content_name: 'WhatsApp Button Click'
+        content_name: 'Private Invitation WhatsApp'
     });
 
-    // Redirect to WhatsApp
-    window.location.href="https://api.whatsapp.com/send?phone=17655566144&text=Bună!";
+    // TikTok Lead Event
+    ttq.track('SubmitForm', {
+        content_name: 'Private Invitation',
+        content_type: 'dating'
+    });
+
+    // 延迟300ms防止像素丢失
+    setTimeout(function(){
+        window.location.href="https://api.whatsapp.com/send?phone=17655566144&text=Bună!";
+    },300);
 }
 </script>
 
