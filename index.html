@@ -1,147 +1,42 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitație Privată</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<!-- TikTok Pixel Code -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}; 
-  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-  ttq.load=function(e,n){
-    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-    ttq._i=ttq._i||{};
-    ttq._i[e]=[];
-    ttq._i[e]._u=r;
-    ttq._t=ttq._t||{};
-    ttq._t[e]=+new Date;
-    ttq._o=ttq._o||{};
-    ttq._o[e]=n||{};
-    var s=document.createElement("script");
-    s.type="text/javascript";
-    s.async=true;
-    s.src=r+"?sdkid="+e+"&lib=ttq";
-    var x=document.getElementsByTagName("script")[0];
-    x.parentNode.insertBefore(s,x);
-  };
-
-  ttq.load('D6EOHCRC77U0SFL8KVVG');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '2395401230933118');
-fbq('track', 'PageView');
-</script>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{
-    height:100vh;
-    background:linear-gradient(135deg,#0f0f18,#1a0026,#000);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.envelope{
-    width:390px;
-    height:650px;
-    border-radius:25px;
-    padding:18px;
-    background:linear-gradient(145deg,#1a0026,#120018);
-    box-shadow:0 20px 60px rgba(0,0,0,0.7);
-    border:1px solid rgba(255,255,255,0.08);
-}
-.card{
-    width:100%;
-    height:100%;
-    border-radius:20px;
-    overflow:hidden;
-    background:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c') center/cover no-repeat;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-}
-.overlay{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:55%;
-    background:linear-gradient(to top,rgba(0,0,0,0.95),transparent);
-}
-.content{
-    position:relative;
-    z-index:2;
-    padding:20px;
-    color:#fff;
-}
-.match-btn{
-    padding:14px 45px;
-    border:none;
-    border-radius:40px;
-    font-size:15px;
-    font-weight:600;
-    color:#fff;
-    background:linear-gradient(90deg,#ff0066,#ff7a00);
-    cursor:pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div class="envelope">
-    <div class="card">
-        <div class="overlay"></div>
-        <div class="content">
-            <h2>Invitație pentru Prieteni Noi</h2>
-            <p>Descoperă conexiuni autentice într-un cadru sigur.</p>
-            <p>Acces privat • Comunitate selectivă</p>
-
-            <div style="text-align:center;margin-top:15px;">
-                <button class="match-btn" onclick="redirectWS()">Aplică pentru acces</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
 function redirectWS(){
 
-    // Facebook Lead Event
-    fbq('track', 'Lead', {
-        content_name: 'Private Invitation WhatsApp'
-    });
+    // 1️⃣ Facebook Lead 事件
+    if (typeof fbq !== "undefined") {
+        fbq('track', 'Lead', {
+            content_name: 'Private Invitation WhatsApp'
+        });
+    }
 
-    // TikTok Lead Event
-    ttq.track('SubmitForm', {
-        content_name: 'Private Invitation',
-        content_type: 'dating'
-    });
+    // 2️⃣ 等待 TikTok Pixel 加载完成
+    if (typeof ttq !== "undefined") {
 
-    // 延迟300ms防止像素丢失
-    setTimeout(function(){
-        window.location.href="https://api.whatsapp.com/send?phone=17655566144&text=Bună!";
-    },300);
+        ttq.ready(function() {
+
+            // 主优化事件（推荐后台选择 SubmitForm）
+            ttq.track('SubmitForm', {
+                content_name: 'Private Invitation',
+                content_type: 'dating'
+            });
+
+            // 备用事件（提高识别概率）
+            ttq.track('CompleteRegistration', {
+                content_name: 'Private Invitation'
+            });
+
+            // 延迟 1000ms 再跳转
+            setTimeout(function(){
+                window.location.href="https://api.whatsapp.com/send?phone=17655566144&text=Hello!";
+            },1000);
+
+        });
+
+    } else {
+
+        // 如果 TikTok 未加载，直接跳转
+        setTimeout(function(){
+            window.location.href="https://api.whatsapp.com/send?phone=17655566144&text=Hello!";
+        },500);
+    }
 }
 </script>
-
-</body>
-</html>
