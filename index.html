@@ -1,199 +1,179 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potrivire Rapidă - Premium Dating</title>
-    <style>
-        :root {
-            --primary-color: #ff2d55;
-            --secondary-color: #5856d6;
-            --bg-color: #0b0e14;
-        }
-
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: white;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .matching-container {
-            width: 90%;
-            max-width: 450px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.07);
-            padding: 35px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* 快速旋转的雷达 */
-        .radar {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-color);
-            position: relative;
-            background: radial-gradient(circle, rgba(255, 45, 85, 0.2) 0%, transparent 70%);
-        }
-
-        .radar::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: conic-gradient(from 0deg, transparent, var(--primary-color));
-            border-radius: 50%;
-            animation: scan 1s linear infinite; /* 加快到1秒一圈 */
-        }
-
-        @keyframes scan {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .avatar-match {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            overflow: hidden;
-            box-shadow: 0 0 15px var(--primary-color);
-        }
-
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-        .heart-icon {
-            font-size: 35px;
-            color: var(--primary-color);
-            animation: beat 0.5s infinite; /* 快速跳动 */
-        }
-
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        h2 { font-size: 26px; margin: 10px 0; letter-spacing: 1px; }
-
-        /* 进度条 */
-        .progress-box {
-            width: 100%;
-            height: 12px;
-            background: #222;
-            border-radius: 10px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
-            transition: width 0.1s linear;
-        }
-
-        /* 日志直接显示区域 */
-        .log-messages {
-            text-align: left;
-            font-size: 12px;
-            color: #00ffcc;
-            font-family: monospace;
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .success-msg {
-            display: none;
-            color: #4cd964;
-            font-weight: bold;
-            font-size: 20px;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet New Friends • Start Chatting Today</title>
+  <meta name="description" content="Discover real people, make new friends and start meaningful conversations right now."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: linear-gradient(135deg, #6b48ff 0%, #00ddeb 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .container { max-width: 480px; width: 100%; }
+    h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.15; }
+    .subtitle { font-size: 1.25rem; font-weight: 400; opacity: 0.95; margin-bottom: 2.5rem; line-height: 1.4; }
+    .highlight {
+      color: #fff;
+      background: rgba(255,255,255,0.18);
+      padding: 4px 12px;
+      border-radius: 24px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin: 0.6rem 0 1.8rem;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: white;
+      font-size: 1.22rem;
+      font-weight: 600;
+      padding: 18px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.28);
+      transition: all 0.28s ease;
+      margin: 1.5rem 0 2rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      background: #20b858;
+    }
+    .btn-whatsapp svg { width: 28px; height: 28px; }
+    .features { display: flex; flex-direction: column; gap: 1.2rem; margin: 2.5rem 0 1rem; opacity: 0.92; font-size: 1.05rem; }
+    .feature-item { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .feature-item::before { content: "✦"; font-size: 1.4rem; }
+    footer { margin-top: 3rem; font-size: 0.82rem; opacity: 0.7; }
+    @media (max-width: 480px) {
+      h1 { font-size: 2.3rem; }
+      .subtitle { font-size: 1.1rem; }
+      .btn-whatsapp { padding: 16px 32px; font-size: 1.15rem; }
+    }
+  </style>
 </head>
 <body>
+  <!-- TikTok Pixel 加载脚本（支持两个 Pixel ID，同时发送事件） -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject = t;
+    var ttq = w[t] = w[t] || [];
+    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+    ttq.setAndDefer = function (t, e) {
+      t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) };
+    };
+    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+    ttq.instance = function (t) {
+      for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+      return e;
+    };
+    ttq.load = function (e, n) {
+      var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
+      var o = n && n.partner;
+      ttq._i = ttq._i || {};
+      ttq._i[e] = [];
+      ttq._i[e]._u = r;
+      ttq._t = ttq._t || {};
+      ttq._t[e] = +new Date;
+      ttq._o = ttq._o || {};
+      ttq._o[e] = n || {};
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = r + "?sdkid=" + e + "&lib=" + t;
+      var a = document.getElementsByTagName("script")[0];
+      a.parentNode.insertBefore(s, a);
+    };
 
-<div class="matching-container">
-    <div class="avatar-match">
-        <div class="avatar"><img src="https://i.pravatar.cc/150?u=me" alt="Me"></div>
-        <div class="heart-icon">❤️</div>
-        <div class="avatar"><img src="https://i.pravatar.cc/150?img=32" id="match-img" alt="Matching"></div>
+    // 加载两个 Pixel（销量代码已包含）
+    ttq.load('D6EOHCRC77U0SFL8KVVG');  // 原 Pixel
+    ttq.load('D6FVTP3C77U56TVATBG0');  // 销量相关 Pixel
+    ttq.page();  // PageView 发送到两个 Pixel
+  }(window, document, 'ttq');
+  </script>
+
+  <div class="container">
+    <div class="highlight">Real People • Real Connections</div>
+    <h1>Meet Someone Special Today</h1>
+    <p class="subtitle">
+      Discover interesting people nearby or around the world.<br>
+      Chat freely, make friends, or find that spark.
+    </p>
+    <a
+      href="https://wa.me/12678341019?text=Hi%21%20I%27m%20from%20the%20app%20%E2%9C%A8"
+      class="btn-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="whatsapp-btn"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004c-1.423 0-2.82-.394-4.039-1.139l-.289-.172-2.998 1.006.995-3.005-.195-.292c-.827-1.24-1.265-2.68-1.265-4.17 0-4.326 3.523-7.849 7.849-7.849 2.096 0 4.065.817 5.546 2.3a7.802 7.802 0 0 1 2.298 5.548c0 4.326-3.523 7.849-7.849 7.849z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <div class="features">
+      <div class="feature-item">Instant private chat</div>
+      <div class="feature-item">People who want to connect now</div>
+      <div class="feature-item">No boring profiles, just real talk</div>
+      <div class="feature-item">100% free to start</div>
     </div>
+    <footer>By joining you agree to our community guidelines</footer>
+  </div>
 
-    <div class="radar"></div>
-
-    <h2 id="main-title">Se caută parteneri...</h2>
-
-    <div class="progress-box">
-        <div class="progress-bar" id="pb"></div>
-    </div>
-
-    <div class="log-messages" id="log-box">
-        <div>> Locație: România identificată</div>
-        <div>> Algoritmul BK activat</div>
-        <div id="status-line">> Se scanează utilizatorii de elită...</div>
-    </div>
-
-    <div class="success-msg" id="success">
-        ✅ POTRIVIRE GĂSITĂ!
-    </div>
-</div>
-
-<script>
-    const pb = document.getElementById('pb');
-    const mainTitle = document.getElementById('main-title');
-    const successMsg = document.getElementById('success');
-    const statusLine = document.getElementById('status-line');
-    
-    let width = 0;
-    // 加快匹配速度，大约 2-3 秒完成
-    const speed = setInterval(() => {
-        width += Math.random() * 8; 
-        if (width >= 100) {
-            width = 100;
-            clearInterval(speed);
-            completeMatch();
-        }
-        pb.style.width = width + "%";
-        
-        // 进度过半时直接更新一条关键文字
-        if(width > 50) {
-            statusLine.innerHTML = "> Compatibilitate găsită: 98%";
-            statusLine.style.color = "#ff2d55";
-        }
-    }, 150);
-
-    function completeMatch() {
-        mainTitle.style.display = "none";
-        successMsg.style.display = "block";
-        
-        // 缩短跳转延迟至 1.5 秒，快速导入 WhatsApp
-        setTimeout(() => {
-            window.location.href = "https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie.";
-        }, 1500);
-    }
-</script>
+  <!-- 点击按钮触发 Contact 事件（视为销量转化，带价值参数） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const whatsappBtn = document.getElementById('whatsapp-btn');
+      
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function(e) {
+          e.preventDefault();  // 阻止立即跳转，确保事件发送
+          
+          console.log('【销量转化追踪】WhatsApp 按钮点击 - 发送 Contact 事件（带价值）');
+          
+          try {
+            if (window.ttq) {
+              ttq.track('Contact', {
+                content_name: 'WhatsApp_Sales_Lead_Click',
+                content_category: 'High_Intention_Lead',  // 强调高意图销售线索
+                content_id: 'main_whatsapp_button',
+                description: 'User clicked WhatsApp for chat - treated as sales conversion lead',
+                value: 5.00,          // 每个点击的估算价值（改成你的真实平均，如 10.00 或更高）
+                currency: 'USD'       // 如果用柬埔寨本地货币，改成 'KHR' 并调整 value
+              });
+              console.log('【成功】Contact 事件已发送到两个 Pixel（视为销量转化）');
+            } else {
+              console.warn('ttq 未就绪 - Pixel 加载可能慢或失败');
+            }
+          } catch (err) {
+            console.error('追踪 Contact 事件失败:', err);
+          }
+          
+          // 延迟 500ms 打开 WhatsApp（给 TikTok 发送时间，通常够了）
+          setTimeout(() => {
+            window.open(whatsappBtn.href, '_blank', 'noopener,noreferrer');
+          }, 500);
+        });
+      } else {
+        console.warn('WhatsApp 按钮未找到');
+      }
+    });
+  </script>
 
 </body>
 </html>
