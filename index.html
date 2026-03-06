@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUNCH DISCO | Romania</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+      ttq.load('D6EOHCRC77U0SFL8KVVG');
+      ttq.page();
+    }(window, document, 'ttq');
+
+    // 自定义追踪函数：点击按钮触发“联系”事件
+    function trackTiktokContact() {
+        ttq.track('Contact'); 
+    }
+    </script>
     <style>
         :root {
             --neon-pink: #ff0050;
@@ -22,7 +38,6 @@
             overflow-x: hidden;
         }
 
-        /* 动态背景 */
         .main-container {
             position: relative;
             min-height: 100vh;
@@ -33,7 +48,6 @@
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
         }
 
-        /* 霓虹装饰光晕 */
         .glow-circle {
             position: absolute;
             width: 300px;
@@ -50,7 +64,6 @@
             to { transform: scale(1.3); opacity: 0.5; }
         }
 
-        /* 内容卡片 - 毛玻璃效果 */
         .content-box {
             position: relative;
             z-index: 10;
@@ -81,7 +94,6 @@
             margin: 15px 0 30px;
         }
 
-        /* 按钮样式 */
         .cta-button {
             display: flex;
             align-items: center;
@@ -97,14 +109,12 @@
             overflow: hidden;
         }
 
-        /* 按钮 1：霓虹填充 */
         .btn-join {
             background: var(--neon-pink);
             color: white;
             box-shadow: 0 0 20px rgba(255, 0, 80, 0.4);
         }
 
-        /* 按钮 2：霓虹边框 */
         .btn-reserve {
             border: 2px solid var(--neon-cyan);
             color: var(--neon-cyan);
@@ -120,7 +130,6 @@
             font-size: 1.3rem;
         }
 
-        /* 底部合规区 */
         footer {
             background: #000;
             padding: 30px 15px;
@@ -149,7 +158,6 @@
             padding-top: 15px;
         }
 
-        /* WS 图标悬浮 */
         .ws-sticky {
             position: fixed;
             bottom: 20px;
@@ -177,11 +185,15 @@
             <h1>LUNCH DISCO</h1>
             <p class="tagline">Energia de care ai nevoie pentru restul zilei. Muzică, vibe și oameni faini.</p>
 
-            <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." class="cta-button btn-join">
+            <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." 
+               onclick="trackTiktokContact()" 
+               class="cta-button btn-join">
                 <i class="fas fa-rocket"></i> ALĂTURĂ-TE ACUM
             </a>
 
-            <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." class="cta-button btn-reserve">
+            <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." 
+               onclick="trackTiktokContact()" 
+               class="cta-button btn-reserve">
                 <i class="far fa-calendar-alt"></i> REZERVĂ TIMPUL
             </a>
 
@@ -191,7 +203,9 @@
         </div>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." class="ws-sticky">
+    <a href="https://api.whatsapp.com/send?phone=13184785260&text=Salut,%20te-am%20cunoscut%20prin%20aplica%C8%9Bie." 
+       onclick="trackTiktokContact()" 
+       class="ws-sticky">
         <i class="fab fa-whatsapp"></i>
     </a>
 
