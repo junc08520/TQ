@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUNCH DISCO | Premium Energy Event</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>הצטרפו למסיבות החוץ שלנו</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
     
     <script>
     !function (w, d, t) {
@@ -12,118 +15,141 @@
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-      ttq.load('D6FVTP3C77U56TVATBG0'); // 您的最新 Pixel ID
+      ttq.load('D6EOHCRC77U0SFL8KVVG');
       ttq.page();
     }(window, document, 'ttq');
-
-    // 核心：销量点击追踪函数（带虚拟金额回传，优化算法）
-    function trackTiktokSale() {
-        ttq.track('CompletePayment', {
-            value: 50,         // 模拟单次转化价值（50美金）
-            currency: 'USD',   // 币种
-            content_type: 'product',
-            content_name: 'Lunch Disco Entry'
-        }); 
-    }
     </script>
     <style>
-        :root {
-            --neon-pink: #ff0050;
-            --neon-cyan: #00f2ea;
-            --dark-bg: #050505;
-        }
-
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Heebo', 'Assistant', sans-serif;
             color: white;
+            line-height: 1.6;
             overflow-x: hidden;
+            direction: rtl;
+            min-height: 100vh;
+            background: #0a0f1c;
         }
-
-        .main-container {
+        .party-container {
+            position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-        }
-
-        .content-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 20px;
-            border-radius: 24px;
-            text-align: center;
-            width: 85%;
-            max-width: 400px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-        }
-
-        .cta-button {
-            display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 18px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: 0.3s;
+            padding: 20px;
+            overflow: hidden;
         }
-
-        .btn-join { background: var(--neon-pink); color: white; }
-        .btn-reserve { border: 2px solid var(--neon-cyan); color: var(--neon-cyan); }
-
-        .ws-sticky {
-            position: fixed; bottom: 20px; right: 20px;
-            background: #25d366; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            color: white; font-size: 30px; z-index: 999;
+        .fire-background {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a0f0a 0%, #0a0705 70%, #050302 100%);
+            z-index: -2;
         }
-
-        footer { padding: 30px; text-align: center; font-size: 11px; color: #666; }
+        .campfire {
+            position: absolute; bottom: 10%; left: 50%;
+            transform: translateX(-50%); width: 300px; height: 400px; z-index: -1;
+        }
+        .fire {
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 200px; height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255,120,0,0.9) 0%, rgba(255,80,0,0.7) 20%, transparent 80%);
+            border-radius: 50% 50% 40% 40%; animation: flicker 2s infinite alternate; filter: blur(5px);
+        }
+        .logs { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 250px; height: 80px; }
+        .log { position: absolute; width: 200px; height: 30px; background: linear-gradient(to right, #5d4037, #3e2723); border-radius: 5px; }
+        .log-1 { transform: rotate(45deg); top: 30px; left: 10px; }
+        .log-2 { transform: rotate(-45deg); top: 30px; right: 10px; }
+        .log-3 { width: 180px; top: 50px; left: 35px; }
+        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -3; }
+        .star { position: absolute; background-color: white; border-radius: 50%; animation: twinkle var(--duration) infinite alternate; }
+        .main-content {
+            text-align: center; max-width: 800px; padding: 40px;
+            background: rgba(10, 15, 28, 0.7); backdrop-filter: blur(10px);
+            border-radius: 30px; border: 1px solid rgba(255, 100, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(255, 80, 0, 0.2); z-index: 10;
+        }
+        .title {
+            font-size: 3.5rem; margin-bottom: 20px;
+            background: linear-gradient(to left, #ff9500, #ff3300);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            font-weight: 800;
+        }
+        .subtitle { font-size: 1.5rem; margin-bottom: 40px; color: rgba(255, 255, 255, 0.9); }
+        .highlight { color: #ff9500; font-weight: 700; }
+        .activities { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px 0; }
+        .activity { display: flex; flex-direction: column; align-items: center; width: 110px; }
+        .activity-icon {
+            width: 70px; height: 70px; background: rgba(255, 100, 0, 0.2);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 10px; font-size: 1.8rem; color: #ff9500; border: 2px solid rgba(255, 100, 0, 0.5);
+        }
+        .whatsapp-btn {
+            display: inline-flex; align-items: center;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white; text-decoration: none; padding: 20px 45px;
+            border-radius: 50px; font-size: 1.4rem; font-weight: 700;
+            transition: 0.3s; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6); }
+        .whatsapp-btn i { margin-left: 12px; font-size: 1.7rem; }
+        @keyframes flicker { 0% { opacity: 0.8; transform: translateX(-50%) scale(1); } 100% { opacity: 1; transform: translateX(-50%) scale(1.05); } }
+        @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+        @media (max-width: 768px) { .title { font-size: 2.2rem; } .subtitle { font-size: 1.1rem; } }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="content-box">
-            <h1>LUNCH DISCO</h1>
-            <p style="color:#ccc; margin-bottom:30px;">Premium Private Social Event.<br>Experience the energy reset.</p>
+    <div class="party-container">
+        <div class="stars" id="stars"></div>
+        <div class="fire-background"></div>
+        <div class="campfire"><div class="fire"></div><div class="logs"><div class="log log-1"></div><div class="log log-2"></div><div class="log log-3"></div></div></div>
 
-            <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello." 
-               onclick="trackTiktokSale()" class="cta-button btn-join">
-                <i class="fas fa-rocket"></i> JOIN NOW
-            </a>
+        <div class="main-content">
+            <h1 class="title">הצטרפו למסע של מפגשים</h1>
+            <p class="subtitle">הכירו חברים חדשים ב<span class="highlight">מסיבות מדבר</span> ו<span class="highlight">פעילויות חוץ</span></p>
+            
+            <div class="activities">
+                <div class="activity"><div class="activity-icon"><i class="fas fa-fire"></i></div><div class="activity-name">מדורות</div></div>
+                <div class="activity"><div class="activity-icon"><i class="fas fa-hiking"></i></div><div class="activity-name">טיולים</div></div>
+                <div class="activity"><div class="activity-icon"><i class="fas fa-umbrella-beach"></i></div><div class="activity-name">חוף</div></div>
+                <div class="activity"><div class="activity-icon"><i class="fas fa-caravan"></i></div><div class="activity-name">קמפינג</div></div>
+            </div>
 
-            <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello.." 
-               onclick="trackTiktokSale()" class="cta-button btn-reserve">
-                <i class="far fa-calendar-alt"></i> BOOK A SLOT
-            </a>
+            <div class="whatsapp-btn-container">
+                <a href="https://wa.me/8613184785260?text=%D7%A9%D7%9C%D7%95%D7%9D" class="whatsapp-btn" id="whatsappBtn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    שלחו לנו הודעה בוואטסאפ
+                </a>
+            </div>
+            
+            <p style="margin-top:20px; font-size: 0.9rem; opacity: 0.8;">הרפתקאות חדשות מחכות לכם!</p>
         </div>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello.." 
-       onclick="trackTiktokSale()" class="ws-sticky">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+        // تتبع تيك توك عند الضغط
+        document.getElementById('whatsappBtn').addEventListener('click', function() {
+            if (typeof ttq !== 'undefined') {
+                ttq.track('Contact', {
+                    content_name: 'whatsapp_contact',
+                    value: 0,
+                    currency: 'USD'
+                });
+            }
+        });
 
-    <footer>
-        <p>© 2026 LUNCH DISCO. This site is not part of the TikTok website.</p>
-        <p>Participation is voluntary. Data is processed per our Privacy Policy.</p>
-    </footer>
-
+        // إنشاء النجوم
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = Math.random() * 3 + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
 </html>
