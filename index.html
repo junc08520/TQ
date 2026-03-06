@@ -1,179 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Meet New Friends • Start Chatting Today</title>
-  <meta name="description" content="Discover real people, make new friends and start meaningful conversations right now."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', system-ui, sans-serif;
-      background: linear-gradient(135deg, #6b48ff 0%, #00ddeb 100%);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 16px;
-      text-align: center;
-    }
-    .container { max-width: 480px; width: 100%; }
-    h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.15; }
-    .subtitle { font-size: 1.25rem; font-weight: 400; opacity: 0.95; margin-bottom: 2.5rem; line-height: 1.4; }
-    .highlight {
-      color: #fff;
-      background: rgba(255,255,255,0.18);
-      padding: 4px 12px;
-      border-radius: 24px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: inline-block;
-      margin: 0.6rem 0 1.8rem;
-    }
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #25D366;
-      color: white;
-      font-size: 1.22rem;
-      font-weight: 600;
-      padding: 18px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.28);
-      transition: all 0.28s ease;
-      margin: 1.5rem 0 2rem;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-whatsapp:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-      background: #20b858;
-    }
-    .btn-whatsapp svg { width: 28px; height: 28px; }
-    .features { display: flex; flex-direction: column; gap: 1.2rem; margin: 2.5rem 0 1rem; opacity: 0.92; font-size: 1.05rem; }
-    .feature-item { display: flex; align-items: center; justify-content: center; gap: 12px; }
-    .feature-item::before { content: "✦"; font-size: 1.4rem; }
-    footer { margin-top: 3rem; font-size: 0.82rem; opacity: 0.7; }
-    @media (max-width: 480px) {
-      h1 { font-size: 2.3rem; }
-      .subtitle { font-size: 1.1rem; }
-      .btn-whatsapp { padding: 16px 32px; font-size: 1.15rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Disco | Energie pură la prânz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff0050; /* TikTok 风格红 */
+            --secondary-color: #00f2ea; /* TikTok 风格青 */
+            --dark-bg: #121212;
+            --text-white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* 背景装饰 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80'); /* 替换为你的午餐蹦迪背景图 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* 按钮容器 */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* WhatsApp 悬浮球 */
+        .ws-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        /* 合规底部 */
+        footer {
+            background: #000;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .legal-links {
+            margin-bottom: 20px;
+        }
+
+        .legal-links a {
+            color: #888;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .disclaimer {
+            max-width: 800px;
+            margin: 20px auto;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <!-- TikTok Pixel 加载脚本（支持两个 Pixel ID，同时发送事件） -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject = t;
-    var ttq = w[t] = w[t] || [];
-    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-    ttq.setAndDefer = function (t, e) {
-      t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) };
-    };
-    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-    ttq.instance = function (t) {
-      for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
-      return e;
-    };
-    ttq.load = function (e, n) {
-      var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
-      var o = n && n.partner;
-      ttq._i = ttq._i || {};
-      ttq._i[e] = [];
-      ttq._i[e]._u = r;
-      ttq._t = ttq._t || {};
-      ttq._t[e] = +new Date;
-      ttq._o = ttq._o || {};
-      ttq._o[e] = n || {};
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = r + "?sdkid=" + e + "&lib=" + t;
-      var a = document.getElementsByTagName("script")[0];
-      a.parentNode.insertBefore(s, a);
-    };
 
-    // 加载两个 Pixel（销量代码已包含）
-    ttq.load('D6EOHCRC77U0SFL8KVVG');  // 原 Pixel
-    ttq.load('D6FVTP3C77U56TVATBG0');  // 销量相关 Pixel
-    ttq.page();  // PageView 发送到两个 Pixel
-  }(window, document, 'ttq');
-  </script>
+    <section class="hero">
+        <h1>LUNCH DISCO</h1>
+        <p class="subtitle">Singurul eveniment de prânz din România care îți dă reset la energie. Muzică, vibe și socializare!</p>
+        
+        <div class="btn-container">
+            <a href="https://yourwebsite.com/join" class="btn btn-primary">ALĂTURĂ-TE ACUM</a>
+            <a href="https://yourwebsite.com/booking" class="btn btn-secondary">REZERVĂ TIMPUL</a>
+        </div>
+    </section>
 
-  <div class="container">
-    <div class="highlight">Real People • Real Connections</div>
-    <h1>Meet Someone Special Today</h1>
-    <p class="subtitle">
-      Discover interesting people nearby or around the world.<br>
-      Chat freely, make friends, or find that spark.
-    </p>
-    <a
-      href="https://wa.me/12678341019?text=Hi%21%20I%27m%20from%20the%20app%20%E2%9C%A8"
-      class="btn-whatsapp"
-      target="_blank"
-      rel="noopener noreferrer"
-      id="whatsapp-btn"
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004c-1.423 0-2.82-.394-4.039-1.139l-.289-.172-2.998 1.006.995-3.005-.195-.292c-.827-1.24-1.265-2.68-1.265-4.17 0-4.326 3.523-7.849 7.849-7.849 2.096 0 4.065.817 5.546 2.3a7.802 7.802 0 0 1 2.298 5.548c0 4.326-3.523 7.849-7.849 7.849z"/></svg>
-      Chat on WhatsApp
+    <a href="https://wa.me/YOURNUMBER" class="ws-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
-    <div class="features">
-      <div class="feature-item">Instant private chat</div>
-      <div class="feature-item">People who want to connect now</div>
-      <div class="feature-item">No boring profiles, just real talk</div>
-      <div class="feature-item">100% free to start</div>
-    </div>
-    <footer>By joining you agree to our community guidelines</footer>
-  </div>
 
-  <!-- 点击按钮触发 Contact 事件（视为销量转化，带价值参数） -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const whatsappBtn = document.getElementById('whatsapp-btn');
-      
-      if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', function(e) {
-          e.preventDefault();  // 阻止立即跳转，确保事件发送
-          
-          console.log('【销量转化追踪】WhatsApp 按钮点击 - 发送 Contact 事件（带价值）');
-          
-          try {
-            if (window.ttq) {
-              ttq.track('Contact', {
-                content_name: 'WhatsApp_Sales_Lead_Click',
-                content_category: 'High_Intention_Lead',  // 强调高意图销售线索
-                content_id: 'main_whatsapp_button',
-                description: 'User clicked WhatsApp for chat - treated as sales conversion lead',
-                value: 5.00,          // 每个点击的估算价值（改成你的真实平均，如 10.00 或更高）
-                currency: 'USD'       // 如果用柬埔寨本地货币，改成 'KHR' 并调整 value
-              });
-              console.log('【成功】Contact 事件已发送到两个 Pixel（视为销量转化）');
-            } else {
-              console.warn('ttq 未就绪 - Pixel 加载可能慢或失败');
-            }
-          } catch (err) {
-            console.error('追踪 Contact 事件失败:', err);
-          }
-          
-          // 延迟 500ms 打开 WhatsApp（给 TikTok 发送时间，通常够了）
-          setTimeout(() => {
-            window.open(whatsappBtn.href, '_blank', 'noopener,noreferrer');
-          }, 500);
-        });
-      } else {
-        console.warn('WhatsApp 按钮未找到');
-      }
-    });
-  </script>
+    <footer>
+        <div class="legal-links">
+            <a href="#">Termeni și Condiții</a> | 
+            <a href="#">Politică de Confidențialitate (GDPR)</a> | 
+            <a href="#">Politică Cookie</a>
+        </div>
+        
+        <p>© 2026 LUNCH DISCO ROMANIA. Toate drepturile rezervate.</p>
+        
+        <div class="disclaimer">
+            <strong>Exonerare de responsabilitate (Disclaimer):</strong> 
+            Participarea la evenimentele noastre presupune o stare de sănătate bună. Acest site nu face parte din rețeaua TikTok sau ByteDance Ltd. Evenimentul promovează un stil de viață sănătos (fără alcool în timpul prânzului). Datele dvs. sunt protejate conform regulamentului European 2016/679.
+        </div>
+    </footer>
 
 </body>
 </html>
