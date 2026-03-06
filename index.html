@@ -12,12 +12,13 @@
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-      ttq.load('D6EOHCRC77U0SFL8KVVG');
+      ttq.load('D6FVTP3C77U56TVATBG0'); // 已更新为您提供的最新ID
       ttq.page();
     }(window, document, 'ttq');
 
-    function trackTiktokContact() {
-        ttq.track('Contact'); 
+    // 关键：点击即追踪为销量事件 (CompletePayment)
+    function trackTiktokSale() {
+        ttq.track('CompletePayment'); 
     }
     </script>
     <style>
@@ -29,8 +30,7 @@
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--dark-bg);
             color: white;
@@ -48,13 +48,10 @@
         }
 
         .glow-circle {
-            position: absolute;
-            width: 300px;
-            height: 300px;
+            position: absolute; width: 300px; height: 300px;
             background: var(--neon-pink);
             filter: blur(150px);
-            opacity: 0.3;
-            z-index: 1;
+            opacity: 0.3; z-index: 1;
             animation: pulse 5s infinite alternate;
         }
 
@@ -64,106 +61,52 @@
         }
 
         .content-box {
-            position: relative;
-            z-index: 10;
+            position: relative; z-index: 10;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px 20px;
             border-radius: 24px;
             text-align: center;
-            width: 85%;
-            max-width: 400px;
+            width: 85%; max-width: 400px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin: 0;
+            font-size: 2.5rem; margin: 0;
             background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            font-weight: 900;
+            text-transform: uppercase; font-weight: 900;
         }
 
         p.tagline {
-            font-size: 1rem;
-            color: #ccc;
-            margin: 15px 0 30px;
-            line-height: 1.4;
+            font-size: 1rem; color: #ccc;
+            margin: 15px 0 30px; line-height: 1.4;
         }
 
         .cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            padding: 18px; margin-bottom: 20px; border-radius: 12px;
+            text-decoration: none; font-weight: bold; font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
-        .btn-join {
-            background: var(--neon-pink);
-            color: white;
-            box-shadow: 0 0 20px rgba(255, 0, 80, 0.4);
-        }
+        .btn-join { background: var(--neon-pink); color: white; box-shadow: 0 0 20px rgba(255, 0, 80, 0.4); }
+        .btn-reserve { border: 2px solid var(--neon-cyan); color: var(--neon-cyan); background: transparent; }
+        .cta-button:active { transform: scale(0.95); }
+        .cta-button i { margin-right: 10px; font-size: 1.3rem; }
 
-        .btn-reserve {
-            border: 2px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            background: transparent;
-        }
-
-        .cta-button:active {
-            transform: scale(0.95);
-        }
-
-        .cta-button i {
-            margin-right: 10px;
-            font-size: 1.3rem;
-        }
-
-        footer {
-            background: #000;
-            padding: 30px 15px;
-            text-align: center;
-            font-size: 11px;
-            color: #666;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
+        footer { background: #000; padding: 30px 15px; text-align: center; font-size: 11px; color: #666; width: 100%; box-sizing: border-box; }
         .legal-links { margin-bottom: 15px; }
         .legal-links a { color: #999; text-decoration: none; margin: 0 8px; }
-
-        .disclaimer-text {
-            max-width: 600px;
-            margin: 10px auto;
-            line-height: 1.4;
-            border-top: 1px solid #222;
-            padding-top: 15px;
-        }
+        .disclaimer-text { max-width: 600px; margin: 10px auto; line-height: 1.4; border-top: 1px solid #222; padding-top: 15px; }
 
         .ws-sticky {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 28px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 999;
+            position: fixed; bottom: 20px; right: 20px;
+            background: #25d366; width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 28px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 999;
         }
     </style>
 </head>
@@ -177,13 +120,13 @@
             <p class="tagline">The ultimate midday energy reset. <br>Music, vibes, and amazing people.</p>
 
             <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello." 
-               onclick="trackTiktokContact()" 
+               onclick="trackTiktokSale()" 
                class="cta-button btn-join">
                 <i class="fas fa-rocket"></i> JOIN NOW
             </a>
 
             <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello.." 
-               onclick="trackTiktokContact()" 
+               onclick="trackTiktokSale()" 
                class="cta-button btn-reserve">
                 <i class="far fa-calendar-alt"></i> BOOK A SLOT
             </a>
@@ -195,7 +138,7 @@
     </div>
 
     <a href="https://api.whatsapp.com/send?phone=13184785260&text=hello.." 
-       onclick="trackTiktokContact()" 
+       onclick="trackTiktokSale()" 
        class="ws-sticky">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -206,13 +149,10 @@
             <a href="#">Privacy Policy (GDPR)</a>
             <a href="#">Cookies</a>
         </div>
-        
         <p>© 2026 LUNCH DISCO. Organized for an active community.</p>
-        
         <div class="disclaimer-text">
             <strong>Disclaimer:</strong> This site is not part of the TikTok, Facebook or Google website. 
-            Participation is voluntary and requires good health. 
-            Data collected via WhatsApp is managed according to our Privacy Policy. 
+            Participation is voluntary and requires good health. Data collected via WhatsApp is managed according to our Privacy Policy. 
             Enjoy the positive energy responsibly! ⚡
         </div>
     </footer>
